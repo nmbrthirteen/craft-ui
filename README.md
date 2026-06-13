@@ -8,7 +8,7 @@ that grows from the button you pressed, the number that holds the layout still w
 ticks. Invisible on their own. Stacked, they are why a product feels trustworthy
 without anyone being able to say why.
 
-A Claude Code skill, by [Nika Siradze](https://nikusha.com).
+An agent skill for craft-level UI work, by [Nika Siradze](https://nikusha.com).
 
 ## What it does
 
