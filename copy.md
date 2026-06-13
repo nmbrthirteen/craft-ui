@@ -67,7 +67,7 @@ siblings ("Not X, not Y, just Z", "Not a tool, not an app, a companion"). Define
 thing directly, or let a concrete detail carry it.
 
 **Why:** it's a rhythm that sounds profound and says little, and it's everywhere in
-generated marketing copy. It's also explicitly banned in Nika's writing rules.
+generated marketing copy. Ban it outright.
 
 - Bad: "No streaks to protect, no badges to chase, just the next twenty-five minutes."
 - Good: "One timer, twenty-five minutes, then you're done."

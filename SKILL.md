@@ -5,22 +5,18 @@ description: Craft-level UI polish, the small details and motion decisions that 
 
 # Craft UI
 
-> By Nika Siradze · [nikusha.com](https://nikusha.com)
+The AI ships code that works. That part is free now. What it does not hand you is the
+feel: the dozens of tiny calls that decide whether a product reads as considered or as
+something nobody finished.
 
-The AI ships code that works. That part is basically free now. Anyone can prompt
-their way to a screen that renders and a button that clicks. What the model doesn't
-hand you is the feel: the dozens of tiny calls that decide whether a product reads
-as considered or as something nobody quite finished.
+That feel rarely comes from one big move. It is the border radius that lines up with
+the one inside it. The dropdown that grows out of the button you pressed instead of
+popping in from nowhere. The number that holds the layout still when it ticks. Each one
+is invisible alone. Stack enough and you get a product people trust without being able
+to say why. That trust is the point.
 
-That feel is the layer you bring, and it almost never comes from one big move. It is
-the border radius that lines up with the one inside it. The dropdown that grows out
-of the button you pressed instead of popping in from nowhere. The number that holds
-the layout still when it ticks. Each one is invisible on its own. Stack enough of
-them and you get a product people trust without being able to say why, and that
-trust is the whole point.
-
-So treat this skill as the judgment layer. Use it while building, and use it harder
-while reviewing, whether the code is yours or the AI's.
+Treat this skill as the judgment layer. Use it while building. Use it harder while
+reviewing, whether the code is yours or the AI's.
 
 ## How to read this skill
 

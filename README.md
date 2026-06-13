@@ -1,37 +1,38 @@
 # Craft UI
 
-A Claude Code / agent skill for craft-level UI work. It is the layer you add after
-the AI ships code that merely works: the small details and decisions that make an
-interface feel considered instead of generated.
+The AI ships working code. That part is free now.
 
-By [Nika Siradze](https://nikusha.com).
+Craft UI is the layer after. The small calls that decide whether a screen feels
+considered or generated: the radius that lines up with the one inside it, the dropdown
+that grows from the button you pressed, the number that holds the layout still when it
+ticks. Invisible on their own. Stacked, they are why a product feels trustworthy
+without anyone being able to say why.
+
+A Claude Code skill, by [Nika Siradze](https://nikusha.com).
 
 ## What it does
 
-Craft UI guarantees a quality floor and gives you a process for using it without
-making every project look the same. It covers:
+Guarantees a quality floor. It does not hand you a look. If everything you build with
+it comes out the same, you copied the defaults instead of deciding. It covers:
 
-- **From brief to UI** ([start-here.md](./start-here.md)) — anchor in the product's
+- **From brief to UI** ([start-here.md](./start-here.md)). Anchor in the product's
   world, plan, critique against the default looks, then build.
-- **Surfaces** ([surfaces.md](./surfaces.md)) — concentric radius, optical alignment,
+- **Surfaces** ([surfaces.md](./surfaces.md)). Concentric radius, optical alignment,
   shadows vs borders, shadow clipping, image outlines, hit areas.
-- **Typography** ([typography.md](./typography.md)) — `text-wrap`, font smoothing,
+- **Typography** ([typography.md](./typography.md)). `text-wrap`, font smoothing,
   tabular numbers.
-- **Motion** ([motion.md](./motion.md)) — the animation decision, easing and duration,
-  enter/exit and stagger, scale-on-press, icon swaps, springs, gestures, performance,
-  accessibility, debugging.
-- **Color** ([color.md](./color.md)) — WCAG contrast, non-text contrast, never color
+- **Motion** ([motion.md](./motion.md)). The animation decision, easing and duration,
+  enter/exit and stagger, scale-on-press, icon swaps, springs, gestures, performance.
+- **Color** ([color.md](./color.md)). WCAG contrast, non-text contrast, never color
   alone, visible focus.
-- **Aesthetics** ([aesthetics.md](./aesthetics.md)) — the visual defaults that read as
-  AI slop: emoji-as-icons, gradient text, gradient logos, multi-hue blobs, neon glows,
-  mismatched icons.
-- **Copy** ([copy.md](./copy.md)) — messaging structure (hero anatomy, the kicker rule,
-  CTA, page flow) and microcopy (no em dashes, no negation-triads, no hype, sentence
-  case).
-- **Transitions** ([transitions/](./transitions/)) — eighteen paste-ready CSS
-  transitions with shared motion tokens and a [`_root.css`](./transitions/_root.css).
+- **Aesthetics** ([aesthetics.md](./aesthetics.md)). The tells that read as AI slop:
+  emoji-as-icons, gradient text, gradient logos, multi-hue blobs, neon glows.
+- **Copy** ([copy.md](./copy.md)). Hero anatomy, the kicker rule, CTA, page flow. No em
+  dashes, no negation triads, no hype, sentence case.
+- **Transitions** ([transitions/](./transitions/)). Eighteen paste-ready CSS
+  transitions on shared motion tokens, with a [`_root.css`](./transitions/_root.css).
 
-Start with [SKILL.md](./SKILL.md). It is the entry point and routes to the rest.
+Start with [SKILL.md](./SKILL.md). It routes to the rest.
 
 ## Install
 
