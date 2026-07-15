@@ -2,14 +2,22 @@
 
 Use this file when the work starts from a product brief, before any markup. The rest of the skill is the quality floor. Skipping this is how every project converges on the same generated look.
 
-Work in order: **anchor → plan → critique → build → review.** Write the plan down before you build. Do not jump to components.
+Work in order: **register → anchor → plan → critique → build → review.** Write the plan down before you build. Do not jump to components.
+
+## 0. Pick the register
+
+- **Brand** (marketing, landing, portfolio): design IS the product. Hero discipline, signature element, composition matter first.
+- **Product** (app UI, dashboard, tool): design SERVES the product. Density, clarity, crisp motion, fewer decorative moves.
+
+Task cue wins ("landing page" vs "settings"). Do not apply brand-hero rules to a dense tool surface, or tool-density rules to a campaign page.
 
 ## 1. Anchor in the product's world
 
 Extract the concrete subject matter: what the product deals with, the artifacts it touches, the words users use. Visual and copy choices come from that world.
 
-- Lead the hero with the most characteristic thing about this product, not a generic headline over two cards. A read-later magazine shows an issue TOC. A cron tool shows a real run table. A budget app shows the money.
+- Lead the first viewport with the most characteristic thing about this product, not a generic headline over two cards. A read-later magazine shows an issue TOC. A cron tool shows a real run table. A budget app shows the money.
 - Failure check: if two different briefs would produce the same screen, you have not anchored yet. Restart this step.
+- Cold test: strip the logo. Could this belong to any other product in the category? If yes, re-anchor.
 
 ## 2. Write a one-screen plan
 

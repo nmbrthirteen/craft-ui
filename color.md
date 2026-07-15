@@ -25,6 +25,8 @@ The traps to check first:
 - **Muted and placeholder text.** A light-gray placeholder like `$0.00` or "Coffee,
   groceries, rent..." is the usual offender. Placeholders still need 4.5:1, and they
   are not a substitute for a label.
+- **Gray text on a colored background.** Washes out and often fails contrast. Prefer
+  a darker shade of the background's own hue, or ink slightly tinted toward that hue.
 - **White text on a mid-tone accent button.** Plenty of mid-saturation greens, teals,
   and oranges fail 4.5:1 with white text. Darken the accent for the button, or switch
   the label to a dark ink. Check it, don't eyeball it.

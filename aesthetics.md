@@ -18,6 +18,9 @@ These are the looks agents reach for when nobody decided. Default to the restrai
 | Fake app/code window | Decorative macOS chrome or code screenshot that shows nothing real | Real UI from the product, or cut it |
 | Hairline as depth | Light 1px border doing the job of elevation | Layered transparent `box-shadow` ([surfaces.md](./surfaces.md)) |
 | Uniform Lucide diet | Same thin-stroke icon pack decorating every empty spot | Fewer icons; match label meaning; vary weight only if the brand set does |
+| Nested cards | Card inside a card, or cards as the default layout for everything | One surface; spacing and type do hierarchy |
+| Default Inter/Roboto/Arial display | "Safe" system-ish face presented as the designed brand voice | A distinctive family that fits the brief, or the project's existing type tokens |
+| Cream editorial body | Warm sand/beige page + terracotta + high-contrast serif as the reflex look | Earn warmth via accent/type/imagery; body bg from the brief, not the monoculture |
 
 ## No emoji as UI
 
@@ -52,6 +55,7 @@ Colored halos under buttons are decoration. Shadows stay neutral and low-opacity
 
 - [ ] No named tell from the table above without an explicit user ask
 - [ ] No emoji as icon, bullet, or badge marker
+- [ ] No nested cards; cards earn their job
 - [ ] No gradient on text; logo is solid or a real mark
 - [ ] Background flat or single-hue wash
 - [ ] Shadows neutral, not colored glow

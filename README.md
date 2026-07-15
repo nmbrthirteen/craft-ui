@@ -35,9 +35,10 @@ If your setup loads skills from `~/.claude/skills`, symlink it there:
 ln -s ~/.agents/skills/craft-ui ~/.claude/skills/craft-ui
 ```
 
-Invoke as `/craft-ui`, or let it trigger on UI and polish work. Agents should follow
-the mode table in [SKILL.md](./SKILL.md): read the entry file, load only the
-satellites the task needs, decide motion before pasting a catalog recipe.
+Invoke as `/craft-ui`, or let it trigger on UI and polish work. Agents follow the
+setup + intent map in [SKILL.md](./SKILL.md): route the ask (`polish`, `animate`,
+`quieter`, `shape`, …), read the project's tokens first, load only the satellites
+that route needs, decide motion before pasting a catalog recipe.
 
 ## License
 
