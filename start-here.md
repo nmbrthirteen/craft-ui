@@ -1,34 +1,59 @@
 # Start here: from brief to UI
 
-Use this file when the work starts from a product brief, before any markup. The rest of the skill is the quality floor. Skipping this is how every project converges on the same generated look.
+Use this for direction, brand kits, comparing ideas, or any work that starts from a product brief before markup. The rest of the skill is the quality floor. Skipping this is how every project converges on the same generated look.
 
 Work in order: **register → anchor → plan → critique → build → review.** Write the plan down before you build. Do not jump to components.
 
 ## 0. Pick the register
 
-- **Brand** (marketing, landing, portfolio): design IS the product. Hero discipline, signature element, composition matter first.
-- **Product** (app UI, dashboard, tool): design SERVES the product. Density, clarity, crisp motion, fewer decorative moves.
+- **Brand** (marketing, landing, portfolio): design IS the product. Hero discipline, signature element, composition first.
+- **Product** (app UI, dashboard, tool): design SERVES the product. Density, clarity, crisp motion, quiet chrome.
 
-Task cue wins ("landing page" vs "settings"). Do not apply brand-hero rules to a dense tool surface, or tool-density rules to a campaign page.
+Task cue wins. A marketing site *for* a SaaS product is brand; the app behind login is product. Design them separately.
 
 ## 1. Anchor in the product's world
 
-Extract the concrete subject matter: what the product deals with, the artifacts it touches, the words users use. Visual and copy choices come from that world.
+Extract the concrete subject matter: artifacts, words users use, what the product actually deals with.
 
-- Lead the first viewport with the most characteristic thing about this product, not a generic headline over two cards. A read-later magazine shows an issue TOC. A cron tool shows a real run table. A budget app shows the money.
-- Failure check: if two different briefs would produce the same screen, you have not anchored yet. Restart this step.
+- Lead the first viewport with the most characteristic thing about this product, not a generic headline over two cards.
+- Failure check: if two different briefs would produce the same screen, re-anchor.
 - Cold test: strip the logo. Could this belong to any other product in the category? If yes, re-anchor.
 
 ## 2. Write a one-screen plan
 
-Decide these before placing a div:
+Decide before placing a div:
 
-- **Palette.** One accent + neutral ramp, 4 to 6 values. Neutrals from a slight warm or cool hue. Contrast targets in [color.md](./color.md) are non-negotiable.
-- **Type.** Display + body chosen for this brief, with a real scale and weights. Do not reuse the same pairing every time.
-- **Density.** Airy editorial, or compact dense. Pick on purpose.
-- **Radius scale.** Sharp (~4px) = precise/technical; soft (16–24px) = friendly. Hold it concentrically ([surfaces.md](./surfaces.md)).
+- **Palette.** One accent + neutral ramp, 4 to 6 values. Neutrals from a slight warm or cool hue. Never default indigo/violet + gray/slate unless the project already owns them. Contrast in [color.md](./color.md) is non-negotiable.
+- **Type.** Display + body for this brief, real scale, at most two weights on a view. Do not reuse the same pairing every time.
+- **Density.** Airy editorial, or compact dense.
+- **Radius scale.** Sharp (~4px) = precise; soft (16–24px) = friendly. Hold concentrically ([surfaces.md](./surfaces.md)).
 - **Motion character.** Crisp/minimal, or springy/alive ([motion.md](./motion.md)).
-- **One signature element.** The single memorable, brief-justified thing. Spend boldness there. Cut decoration that does not serve the brief.
+- **One signature element.** Spend boldness there. Cut decoration that does not serve the brief.
+- **Depth strategy.** One technique per view: whitespace, dividers, soft shadow, or surface shift — not all at once.
+
+## Brand kit
+
+When asked for a brand kit or visual identity from a product idea, output a **decision board**, not only swatches:
+
+1. One-sentence visual thesis (mood, material, energy)
+2. Palette as CSS variables (bg, surface, ink, muted, accent) with roles
+3. Type pairing + scale + weights
+4. Spacing rhythm, radius, depth strategy
+5. Layout pattern for the primary surface (and register)
+6. Two short scene descriptions of how the brand looks in real UI (e.g. marketing hero + one product moment)
+
+If image generation is available, optionally render a board with two mockups. Text-only is enough to hand off to build. Then continue from step 3.
+
+## Ideas (compare directions)
+
+When asked for options / "show me 3" / compare layouts:
+
+1. Produce 2–3 **genuinely different** directions (composition, not just accent hue). Label them.
+2. Each option gets a one-line thesis + the plan axes that change.
+3. Prefer implementing light variants in the real project for browser comparison when possible; otherwise describe clearly enough to choose.
+4. Ask which to keep (or which combo). Build only the chosen direction through steps 3–5.
+
+Do not ship three near-identical indigo heroes.
 
 ## 3. Critique the plan against generator defaults
 
@@ -38,12 +63,12 @@ If any axis matches a default below and the brief did not ask for it, change it 
 - **Near-black + acid-green or vermilion.** "Technical dark mode" default.
 - **White + blue/violet + hero over two rounded cards + pill kicker with a dot.** "Generic SaaS" default.
 
-These are not banned when earned. They are banned when they appear because nobody chose. Complexity must match the vision: maximalist concepts need elaborate execution; minimal ones need precision in spacing and type.
+None banned when earned. Banned when they appear because nobody chose.
 
 ## 4. Build on the quality floor
 
-Load only what the work touches: [surfaces.md](./surfaces.md), [typography.md](./typography.md), [motion.md](./motion.md), [color.md](./color.md), [aesthetics.md](./aesthetics.md), [copy.md](./copy.md), [transitions/catalog.md](./transitions/catalog.md). These keep execution from being sloppy; they do not pick the look.
+Load only what the work touches: [surfaces.md](./surfaces.md), [typography.md](./typography.md), [motion.md](./motion.md), [color.md](./color.md), [aesthetics.md](./aesthetics.md), [copy.md](./copy.md), [transitions/catalog.md](./transitions/catalog.md). Match the project's framework and components.
 
 ## 5. Review
 
-Run the checklist in [SKILL.md](./SKILL.md). Final gate: shown cold, would someone know which product this is? If it could be anyone's, return to step 1.
+Run the checklist and Verify gate in [SKILL.md](./SKILL.md). Final question: shown cold, would someone know which product this is? If it could be anyone's, return to step 1.

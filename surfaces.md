@@ -1,7 +1,38 @@
 # Surfaces
 
-Border radius, optical alignment, depth, image edges, hit areas. The details nobody
-points at and everybody feels.
+Border radius, optical alignment, depth, grouping, spacing rhythm, section layout,
+responsive behavior, image edges, hit areas. The details nobody points at and
+everybody feels.
+
+## Lightest separation that works
+
+Do not jump to cards. Pick the lightest treatment that still communicates grouping:
+
+1. **Whitespace** when items are tightly related or already contrast by type size/weight
+2. **Dividers / hairlines** for sibling rows and metric strips (opacity-based, not solid gray)
+3. **Recessed wells** for secondary or nested content
+4. **Cards** only for independently interactive units or fundamentally different content
+
+Never nest cards. Prefer content on the canvas over white cards on gray by default.
+One depth technique per view: borders-only, tint, soft shadow, or layered shadow —
+mixing all of them makes hierarchy accidental.
+
+In containers, outer padding is at least the gap between children. Related children
+sit closer to each other than to the container edge.
+
+## Spacing rhythm and section layout
+
+Use a three-step rhythm so grouping reads from the gaps: tightest within a group,
+more between groups, most between sections (e.g. 8 / 16 / 32–40). Keep the same jumps
+across the page.
+
+Measure gaps between **visible contrast edges**, not invisible boxes. If a block has
+a tinted background, the section gap starts at that background edge.
+
+Page sections: outer wrapper for background + vertical padding; inner for max-width,
+centering, and horizontal padding. Keep that pattern consistent so content edges
+align while scrolling. Align parallel columns across stacked sections to the same
+grid. Avoid floating nested max-widths on grids that should span the page container.
 
 ## Concentric border radius
 
@@ -64,7 +95,8 @@ at all. If you can't touch the SVG, a `margin-left: 1px` (`ml-px`) is the fallba
 ## Depth from shadow, not borders
 
 For **buttons, cards, and anything elevated**, reach for a layered `box-shadow`
-before a solid border.
+before a solid border. Never pair a soft shadow with a solid gray border; use a
+low-opacity ring/hairline instead.
 
 **Why:** a shadow is built from transparency, so it sits correctly on any
 background, whether that's an image, a gradient, or a themed surface. A solid border
@@ -94,8 +126,11 @@ ambient shadow underneath.
 .card:hover { box-shadow: var(--shadow-border-hover); }
 ```
 
+Custom shadows: blur roughly twice the offset; lower opacity as elevation rises.
+Elevated surfaces stay at the lightest canvas, not a darker gray card on light UI.
+
 In dark mode the layered depth disappears against the dark surface, so collapse it
-to a single white ring:
+to a single white ring and drop drop-shadows:
 
 ```css
 /* dark theme: match the project's mechanism (class, data-attr, media query) */
@@ -105,7 +140,8 @@ to a single white ring:
 
 This is about depth, not separation. A `border-b` between list rows, a table cell
 boundary, a form input outline, a hairline in dense UI: those draw a line, they
-don't lift anything. Leave them as borders.
+don't lift anything. Leave them as borders. Prefer opacity-based dividers
+(`color-mix` or alpha) over solid `gray-200` lines.
 
 | Use shadows | Keep borders |
 | --- | --- |
@@ -136,6 +172,24 @@ Fixes, in order of preference:
 
 Check the bottom and right edges specifically: that's where a card flush to a clipped
 parent loses its shadow.
+
+## Responsive
+
+Every layout adapts from mobile to desktop. Prefer mobile-first; use container queries
+when a component's layout depends on its own width, not the viewport.
+
+- Multi-column shells (sidebars, filters) **collapse**; never squeeze columns. Add a
+  mobile nav (disclosure/dialog) below the desktop breakpoint; hide desktop nav on
+  small screens.
+- Body text and controls are often **larger on mobile**, then slightly tighter on
+  larger breakpoints. Page titles stay the same or get smaller on mobile, never bigger.
+- Text inputs stay at least **16px** on small screens so iOS Safari does not zoom on
+  focus.
+- Flex children that must shrink need `min-width: 0` (or equivalent). Icons, avatars,
+  and fixed controls must not compress.
+- Tables that cannot reflow scroll horizontally; table headers do not wrap.
+- Touch targets: visual control may be small, hit area at least 44×44 (see Hit areas).
+- Check narrow, medium, and desktop widths before shipping.
 
 ## Image outlines
 
@@ -180,3 +234,10 @@ button, grow the hit area with a pseudo-element instead of padding the layout.
 But two interactive elements must never have overlapping hit areas either, because a
 tap in the overlap is a coin flip. If the extended area would collide with a
 neighbor, shrink it to the largest size that still clears.
+
+## Buttons and primary action
+
+One primary filled button per view (treat a dialog as its own view). Everything else
+is secondary, quiet, outline, or ghost. Destructive actions stay secondary until they
+are the confirm action in a dedicated confirm step. Icon-side padding matches the
+optical rules above. Keep control height stable when labels or loading text change.

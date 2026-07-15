@@ -82,14 +82,42 @@ Once contrast is satisfied, the palette is yours and is a primary way products d
 - Lead with one accent, not three. A single confident color reads more designed than
   a rainbow.
 - Build neutrals from a slight hue (warm or cool grays) rather than pure `#000`/`#888`
-  steps, so the surface has a temperature.
+  steps, so the surface has a temperature. Prefer near-black / near-white over pure
+  `#000` / `#fff` on large surfaces.
+- Do not default to indigo/violet accents or gray/slate neutrals unless the project
+  already owns them. Pick a deliberate brief palette or extend existing tokens.
+- Give palette steps brightness roles as well as hues so hover/active/border/text can
+  step the scale instead of inventing one-off colors.
 - Reserve saturated color for action and meaning; let large surfaces stay calm.
+- Increase contrast for primary tasks; lower it for dividers, inactive chrome, and
+  decorative marks.
+
+## Dark mode
+
+Dark mode is a redesign of surfaces and contrast, not an invert.
+
+- Keep the same contrast targets as light mode (body 4.5:1, large 3:1, non-text 3:1).
+- Default to `prefers-color-scheme` / the project's existing dark mechanism. Add a
+  manual toggle only when asked.
+- Drop drop-shadow elevation in dark UI. Use lighter surfaces, hairline rings
+  (`rgba(255,255,255,0.08)` range), or borders. Soft black shadows disappear or turn
+  muddy on dark canvases (see [surfaces.md](./surfaces.md)).
+- Cards sit slightly lighter than the page, not the same color with a heavy shadow.
+- Avoid large saturated brand panels that only worked in light mode; prefer shared
+  canvas + quiet dividers.
+- One light heading color in dark mode; do not mix dark-gray and brand headings.
+- Raster images, screenshots, and external SVG marks need real dark variants. Never
+  ship `filter: invert` / brightness hacks as the final treatment. Inline SVG can use
+  theme-aware fills/strokes.
 
 ## Quick gut check
 
 - [ ] Body text meets 4.5:1; large text and headings meet 3:1
 - [ ] Placeholder and muted text still meet 4.5:1 (and aren't the only label)
 - [ ] Button label passes contrast on its own fill (white-on-accent often fails)
+- [ ] No washed-out gray text on colored backgrounds
 - [ ] Input borders, icons, and focus rings meet 3:1
 - [ ] No state relies on color alone; it survives a grayscale check
 - [ ] Every interactive element has a visible focus-visible style
+- [ ] Palette is deliberate (not default indigo + gray) or matches project tokens
+- [ ] Dark mode redesigned: contrast held, shadows dropped/replaced, dark assets real

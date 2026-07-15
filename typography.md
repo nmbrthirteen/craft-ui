@@ -1,7 +1,24 @@
 # Typography
 
-Three rendering details that cost almost nothing and make text read as deliberate
-instead of default.
+Hierarchy and rendering details that make text read as deliberate instead of default.
+
+## Hierarchy
+
+- Body on mobile is at least 16px. Do not use extra-small sizes for body or UI copy on
+  small screens; tighten at larger breakpoints if needed.
+- Prefer medium / semibold for headings over heavy bold. At most two weights per view:
+  one for emphasis, one for body.
+- Large display type: tighten tracking slightly before adding weight. Floor around
+  `-0.04em`; tighter and letters touch. Do not use tight tracking on small labels.
+- Constrain measure: body roughly 45–75ch; put max-width on the text element itself
+  when a headline wraps badly.
+- Headings: `text-wrap: balance`. Body / short UI copy: `text-wrap: pretty`.
+- Avoid uppercase eyebrows unless the type is intentionally mono/wide-tracked.
+- Pair on a contrast axis (serif + sans, geometric + humanist) or one family in
+  multiple weights. Do not pair two near-identical sans by default.
+- Do not reach for Inter / Roboto / Arial as the "designed" display voice unless the
+  project already owns them. Distinctive type is a primary personality axis
+  ([start-here.md](./start-here.md)).
 
 ## Text wrapping
 
