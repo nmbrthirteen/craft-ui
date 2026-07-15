@@ -44,7 +44,7 @@ When asked for a brand kit or visual identity from a product idea, output a **de
 
 If image generation is available, optionally render a board with two mockups. Text-only is enough to hand off to build. Then continue from step 3.
 
-## Ideas (compare directions)
+## Ideas
 
 When asked for options / "show me 3" / compare layouts:
 
@@ -54,6 +54,16 @@ When asked for options / "show me 3" / compare layouts:
 4. Ask which to keep (or which combo). Build only the chosen direction through steps 3–5.
 
 Do not ship three near-identical indigo heroes.
+
+## Structure
+
+When extracting or cleaning UI code:
+
+- Match the project's existing component patterns, file layout, and naming.
+- Reuse shared components before inventing new ones.
+- Extract repeated sections and self-contained blocks; keep props flexible, not one-off.
+- Preserve layout and behavior; this pass is structural, not a redesign.
+- Prefer the project's class/token conventions; do not introduce a parallel styling system.
 
 ## 3. Critique the plan against generator defaults
 
