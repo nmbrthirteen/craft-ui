@@ -241,3 +241,66 @@ One primary filled button per view (treat a dialog as its own view). Everything 
 is secondary, quiet, outline, or ghost. Destructive actions stay secondary until they
 are the confirm action in a dedicated confirm step. Icon-side padding matches the
 optical rules above. Keep control height stable when labels or loading text change.
+
+## Forms and controls
+
+- Every field has a visible label (or an accessible name that is still clear). Placeholders
+  are hints, not labels.
+- Group related fields under a short section heading. Keep vertical rhythm steady; do
+  not invent a new gap per field.
+- Validation: message + icon (or text) beside the field, not color alone. Prefer
+  inline errors next to the control that failed. See [color.md](./color.md) and the
+  error shake recipe when motion helps.
+- Native controls first. Style with CSS state (checked, disabled, focus); do not
+  toggle classes from JS just to fake checked state.
+- Checkboxes, radios, and toggles keep a usable hit area (see Hit areas) and stay
+  larger on touch / small screens when the project allows.
+- Selects need a consistent chevron and focus ring; do not rely on the ugliest
+  OS default if the rest of the form is custom.
+- Autocomplete, password managers, and zoom: inputs stay ≥16px on small viewports.
+
+## Navigation and chrome
+
+- One clear current-page / current-section indicator. Do not mark selection with color
+  alone.
+- Desktop header or sidebar is fine; below the desktop breakpoint ship a real mobile
+  nav (menu button + panel/dialog). Hiding desktop links without a replacement is a bug.
+- Horizontal tab/pill rows that cannot fit scroll horizontally; they never wrap into
+  a ragged second line of tabs or overflow the page.
+- Sidebars and filter columns collapse on small screens (see Responsive); do not
+  squeeze them.
+
+## Overlays and stacking
+
+- Dropdowns, popovers, and menus that live inside `overflow: hidden` / scroll parents
+  get clipped. Escape with a portal, `position: fixed`, popover/dialog API, or render
+  outside the clipping ancestor.
+- Keep a small semantic stack: dropdown → sticky → modal backdrop → modal → toast →
+  tooltip. No `z-index: 9999` one-offs.
+- Modals and dialogs trap focus while open, restore focus on close, and offer a clear
+  dismiss (scrim click and/or Escape) unless the flow is deliberately blocking.
+- Toasts and banners do not cover primary actions or the focus target without a way
+  to dismiss.
+
+## Data and product density
+
+For dashboards, tables, and settings (product register):
+
+- Prefer scanability over hero furniture. Status and primary actions stay findable
+  without scrolling past marketing chrome.
+- Tables: clear header row, consistent numeric alignment (`tabular-nums`),
+  horizontal scroll when needed, no wrapped header labels.
+- Metric / KPI strips: lightest separation (dividers or whitespace), not a card per
+  stat by default.
+- Truncate long titles with a plan (ellipsis + title/tooltip), not random wrap that
+  blows row height.
+
+## Empty, loading, and error
+
+- Empty states explain what belongs here and offer one clear next action. No cute
+  dead-ends.
+- Loading: prefer skeletons or quiet placeholders that match final layout; avoid
+  layout jump when content arrives (see skeleton transition when motion helps).
+- Errors say what went wrong and how to fix or retry. Pair with [copy.md](./copy.md).
+- First-run / onboarding moments can take more motion; daily empty lists stay quiet.
+

@@ -33,6 +33,7 @@ Never load every file. Never open the catalog first.
 | Dark mode | [color.md](./color.md#dark-mode), [surfaces.md](./surfaces.md#depth-from-shadow-not-borders) |
 | Responsive / mobile | [surfaces.md](./surfaces.md#responsive) |
 | Surfaces / radius / shadow / cards / spacing | [surfaces.md](./surfaces.md) |
+| Forms / controls / nav / overlays / tables / empty states | [surfaces.md](./surfaces.md#forms-and-controls) (also nav, overlays, data, empty sections below it) |
 | Type / wrapping / tabular | [typography.md](./typography.md) |
 | Color / contrast / palette | [color.md](./color.md) |
 | Quieter / less generated look | [aesthetics.md](./aesthetics.md), [copy.md](./copy.md) |
@@ -46,8 +47,8 @@ Narrower intent wins when two could fit.
 | File | Covers |
 | --- | --- |
 | [start-here.md](./start-here.md) | Register, plan, brand kit, ideas, structure, critique, build handoff |
-| [surfaces.md](./surfaces.md) | Radius, depth, cards vs whitespace, spacing, section layout, responsive, hit areas |
-| [typography.md](./typography.md) | Hierarchy, wrapping, smoothing, tabular nums, tracking |
+| [surfaces.md](./surfaces.md) | Radius, depth, cards, spacing, responsive, forms, nav, overlays, data density, empty/loading |
+| [typography.md](./typography.md) | Hierarchy, wrapping, smoothing, tabular nums, tracking, truncation |
 | [motion.md](./motion.md) | Animate-or-not, easing, duration, enter/exit, stagger, press, springs, a11y |
 | [color.md](./color.md) | Contrast, focus, palette, dark mode |
 | [aesthetics.md](./aesthetics.md) | Named generated-UI tells |
@@ -116,6 +117,9 @@ Surfaces and type
 - [ ] Image outlines black/white at 10%; hit areas ≥40×40 (≥44 touch), non-overlapping
 - [ ] Spacing rhythm (tight → group → section); headings balance; body pretty; root antialiased; tabular nums on updating numbers
 - [ ] Heading weight medium/semibold; tracking tight only on large display
+- [ ] Forms labeled; errors not color-alone; overlays not clipped; sensible z-stack
+- [ ] Product density when register is product; empty/loading/error states covered
+- [ ] Truncation planned where needed; no spilled button/chip text
 
 Motion
 - [ ] Justified; no keyboard/100×/day motion

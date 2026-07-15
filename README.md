@@ -13,7 +13,7 @@ paste-ready transitions when the motion decision is yes.
 [SKILL.md](./SKILL.md) is the entry point. Topic files load on demand:
 
 - [start-here.md](./start-here.md) — direction, brand kit, ideas, structure
-- [surfaces.md](./surfaces.md) — radius, depth, cards, spacing, responsive
+- [surfaces.md](./surfaces.md) — radius, depth, cards, spacing, responsive, forms, nav, overlays
 - [typography.md](./typography.md)
 - [motion.md](./motion.md)
 - [color.md](./color.md) — contrast, palette, dark mode

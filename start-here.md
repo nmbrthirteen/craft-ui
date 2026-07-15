@@ -7,9 +7,9 @@ Work in order: **register → anchor → plan → critique → build → review.
 ## 0. Pick the register
 
 - **Brand** (marketing, landing, portfolio): design IS the product. Hero discipline, signature element, composition first.
-- **Product** (app UI, dashboard, tool): design SERVES the product. Density, clarity, crisp motion, quiet chrome.
+- **Product** (app UI, dashboard, tool): design SERVES the product. Density, clarity, crisp motion, quiet chrome. Status and actions beat marketing furniture.
 
-Task cue wins. A marketing site *for* a SaaS product is brand; the app behind login is product. Design them separately.
+Task cue wins. A marketing site *for* a SaaS product is brand; the app behind login is product. Design them separately. Product surfaces follow [surfaces.md](./surfaces.md#data-and-product-density); brand surfaces follow hero and copy rules harder.
 
 ## 1. Anchor in the product's world
 

@@ -95,3 +95,14 @@ digits hold the box still.
 **Caveat:** some fonts (Inter, for one) reshape the `1` under this property, making
 it wider and centered. That's expected and usually what you want for alignment, but
 eyeball it in your actual typeface before shipping.
+
+## Overflow and truncation
+
+- Prefer ellipsis truncation on single-line titles in dense UI (tables, sidebars,
+  metric cards) over unpredictable wraps that blow row height.
+- When truncating, provide the full string via native `title` or an accessible
+  tooltip on hover/focus when the value matters.
+- Do not shrink font size as the primary fix for overflow; fix measure, truncation,
+  or layout first.
+- Buttons and chips: text should not spill; keep padding and min-width so labels
+  stay readable when translated or when counts appear.

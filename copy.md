@@ -40,9 +40,19 @@ forward: who it's for and the problem, the solution and its benefit, how it work
 proof, then a final CTA. One idea per section. Don't repeat the hero three times in
 different words.
 
-Persuasion copywriting is its own discipline; for deep work on value propositions and
-conversion, that's a separate skill. The rules here are the floor that keeps UI copy
-from reading as filler.
+These rules are the floor for UI copy. Deep persuasion and conversion strategy are
+out of scope here; keep claims specific and the structure honest.
+
+### Empty, error, and button labels
+
+- Empty states: name what will appear and the one action that fills it ("Add a job",
+  "Import a CSV"). Avoid jokes that hide the action.
+- Errors: say what failed and what to do next ("Couldn't save. Check the API token
+  and try again."). Not "Something went wrong."
+- Buttons and links name the outcome ("Save changes", "Mail me issue 15"), not the
+  system verb alone ("Submit", "OK", "Learn more") when a clearer label fits.
+- Loading labels stay short and stable in width ("Saving…") so the button does not
+  resize.
 
 ## No em dashes or en dashes in UI copy
 
