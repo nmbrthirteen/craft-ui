@@ -1,208 +1,174 @@
 ---
 name: craft-ui
-description: Craft-level UI polish, the small details and motion decisions that make an interface feel right instead of just work. Use when building or reviewing frontend UI, implementing animations/transitions, or doing visual detail work. Covers border radius, optical alignment, shadows vs borders, image outlines, hit areas, typography (text-wrap, tabular-nums, font smoothing), the animation decision (whether/when to animate, easing, duration), enter/exit and stagger animations, scale-on-press, icon swaps, springs, gestures, and performance, plus a catalog of paste-ready CSS transitions (dropdown, modal, panel, page slide, notification badge, success check, error shake, skeleton, shimmer, sliding tabs, tooltip, number pop-in, text/icon swap, avatar hover, input clear). Triggers on "make it feel better", "feels off", "polish this UI", "add a transition", "animate the dropdown/modal", "stagger animation", "hover state", "micro-interaction", "border radius", "box shadow", "tabular numbers".
+description: Craft-level UI polish and motion decisions that make interfaces feel finished. Use when building or reviewing frontend UI, choosing or implementing animations/transitions, fixing visual details (radius, shadows, hit areas, type), or catching AI-slop aesthetics and copy. Triggers on polish, feels off, micro-interaction, hover/press, dropdown/modal transition, stagger, border radius, box shadow, tabular nums, gradient text, em dash.
 ---
 
 # Craft UI
 
-The AI ships code that works. That part is free now. What it does not hand you is the
-feel: the dozens of tiny calls that decide whether a product reads as considered or as
-something nobody finished.
+Working code is free. This skill is the judgment layer that stops the result from reading as unfinished or generated. It guarantees a quality floor; it does not hand you a look. If every project comes out the same, you copied defaults instead of deciding.
 
-That feel rarely comes from one big move. It is the border radius that lines up with
-the one inside it. The dropdown that grows out of the button you pressed instead of
-popping in from nowhere. The number that holds the layout still when it ticks. Each one
-is invisible alone. Stack enough and you get a product people trust without being able
-to say why. That trust is the point.
+User direction overrides everything below. Absent a clear ask otherwise, treat the **correctness** rules as non-negotiable and the **taste defaults** as the starting point to adapt.
 
-Treat this skill as the judgment layer. Use it while building. Use it harder while
-reviewing, whether the code is yours or the AI's.
+## How to use this skill (agent protocol)
 
-## How to read this skill
+1. **Read this file first.** Do not preload every satellite.
+2. **Pick one mode** from the table below. Load only the files that mode needs.
+3. **Decide before paste.** For motion: answer "should this animate?" in [motion.md](./motion.md) before opening [transitions/catalog.md](./transitions/catalog.md).
+4. **Match the project's stack** (Tailwind, CSS modules, Motion, plain CSS). Do not invent a parallel styling system.
+5. **Before you call the work done**, walk the [Review checklist](#review-checklist) and fix misses. For reviews, ship findings only as Before / After / Why tables.
 
-These are recommendations, not a spec to reproduce. The skill guarantees a quality
-floor. It does not hand you a look. If everything you build with it comes out looking
-the same, you're copying the defaults instead of deciding.
+| Mode | When | Load |
+| --- | --- | --- |
+| From a brief | New screen or redesign from a product brief | [start-here.md](./start-here.md), then floor files as needed |
+| Surfaces / type | Radius, shadows, hit areas, alignment, wrapping, nums | [surfaces.md](./surfaces.md), [typography.md](./typography.md) |
+| Motion | Whether / how to animate, then recipes | [motion.md](./motion.md), then [transitions/catalog.md](./transitions/catalog.md) if implementing |
+| Color | Contrast, focus, never color-alone, palette taste | [color.md](./color.md) |
+| Anti-slop | Generated look, icons, glows, hero chrome | [aesthetics.md](./aesthetics.md), [copy.md](./copy.md) |
+| Review | Audit existing UI or an agent diff | This file's checklist + only satellites the findings touch |
 
-**If you're starting a screen from a brief, read [start-here.md](./start-here.md)
-first.** It's the sequence (anchor, plan, critique, build, review) that keeps the
-output from converging on the same generated look. The files below are the floor you
-build on once the direction is set.
+Never load all satellites at once. Never open the catalog first.
 
-Two kinds of rules live here, and they're not equal:
+## Correctness vs taste
 
-- **Correctness (follow always).** These prevent broken or sloppy results, and they
-  don't constrain style: no `transition: all`, animate `transform`/`opacity` for
-  movement, ship a `prefers-reduced-motion` guard, concentric radius math, real hit
-  areas, no em dashes in copy. Breaking these is a bug.
-- **Taste defaults (a starting point, adapt freely).** The exact shadow rgba, the
-  house ease-out curve, `scale(0.96)` on press, the single-hue wash: these are sane
-  defaults so you don't start from zero. Tune them to the brand. A playful product
-  and a precise dashboard should not share the same numbers.
+- **Correctness (always).** Breaking these is a bug: no `transition: all`; animate `transform`/`opacity` for movement; ship `prefers-reduced-motion`; concentric radius; real hit areas; no em dashes in UI copy; contrast/focus/color-alone rules in [color.md](./color.md).
+- **Taste defaults (adapt).** Exact shadow rgba, house ease-out, `scale(0.96)` on press, single-hue wash: sane starting numbers. A playful product and a precise dashboard should not share the same motion or radius values.
 
-### Make it have range
+Personality axes where products should diverge: color, type, density, radius scale, motion character, layout. Deliberate choices here are what stop identical "crafted" outputs.
 
-A floor is not a look. The skill standardizes correctness; the personality is yours,
-and these are the axes where two craft-ui products *should* diverge. If you're not
-making deliberate choices here, you'll get the generic result:
-
-- **Color.** One product is near-monochrome with a single accent; another is warm and
-  earthy; another is high-contrast and loud. Don't default to the same blue/violet.
-- **Type.** A grotesk, a humanist sans, a serif display, a mono-accented technical
-  voice all change the feel before a single pixel of layout does.
-- **Density and whitespace.** Airy and editorial versus compact and dashboard-dense
-  are different products. Pick on purpose.
-- **Radius scale.** Sharp 4px corners read as precise/technical; 16-24px reads as
-  soft/friendly. Choose a scale and hold it (concentrically).
-- **Motion character.** Crisp and minimal, or springy and alive. The decision
-  framework in [motion.md](./motion.md) applies either way; the values change.
-- **Layout.** Not every page is a centered hero over two cards. Vary the composition.
-
-When in doubt, match the motion and the visual choices to the product's mood: a
-celebration can bounce, a banking dashboard stays crisp and fast. Cohesion across all
-of it is what makes a thing feel designed rather than assembled.
-
-## What's in here
-
-Each file stands on its own. Jump to whichever one the work touches.
+## Quick reference
 
 | File | Covers |
 | --- | --- |
-| [start-here.md](./start-here.md) | **Read first.** From brief to UI: anchor in the product's world, plan, critique against default looks, then build |
-| [surfaces.md](./surfaces.md) | Concentric border radius, optical alignment, shadows vs borders, shadow clipping, image outlines, hit areas |
-| [typography.md](./typography.md) | `text-wrap` balance/pretty, macOS font smoothing, tabular numbers |
-| [motion.md](./motion.md) | The animation decision, easing and duration, enter/exit and stagger, scale-on-press, icon swaps, springs, gestures, performance, accessibility, debugging |
-| [color.md](./color.md) | Contrast ratios (WCAG AA), non-text contrast, never color-alone, visible focus, palette taste |
-| [aesthetics.md](./aesthetics.md) | Visual defaults that read as AI slop: emoji-as-icons, gradient text, gradient logos, multi-hue blobs, neon glows, mismatched icons |
-| [copy.md](./copy.md) | Messaging (hero anatomy, the kicker rule, CTA, page flow) and microcopy (no em dashes, no negation-triads, no hype, sentence case) |
-| [transitions/catalog.md](./transitions/catalog.md) | Eighteen paste-ready CSS transitions, the shared motion tokens, and [`_root.css`](./transitions/_root.css) |
+| [start-here.md](./start-here.md) | Brief → UI: anchor, plan, critique defaults, build, review |
+| [surfaces.md](./surfaces.md) | Concentric radius, optical alignment, shadows vs borders, clipping, image outlines, hit areas |
+| [typography.md](./typography.md) | `text-wrap`, font smoothing, `tabular-nums` |
+| [motion.md](./motion.md) | Animate-or-not, easing, duration, enter/exit, stagger, press, springs, gestures, perf, a11y |
+| [color.md](./color.md) | WCAG AA, non-text contrast, never color-alone, visible focus, palette taste |
+| [aesthetics.md](./aesthetics.md) | Named AI-slop tells: emoji icons, gradient text/logos, pills, glows, aurora, hero chrome |
+| [copy.md](./copy.md) | Hero anatomy, kicker rule, CTA, page flow; no em dashes, negation-triads, or hype |
+| [transitions/catalog.md](./transitions/catalog.md) | Eighteen paste-ready CSS transitions + [`_root.css`](./transitions/_root.css) |
 
-Surfaces and typography are the static details. Motion is how you think about
-anything that moves. Aesthetics and copy are what keep a screen from looking and
-reading like a generator made it. The catalog is the code you copy once you've
-decided the motion belongs. That order matters: reason about the animation in
-`motion.md` first, then grab a recipe. Never the other way around.
+## Non-negotiables
 
-## The one rule that beats the rest
+1. **Decide whether to animate before how.** Keyboard / 100×/day actions: no animation. Frequency table in [motion.md](./motion.md#1-should-this-animate-at-all).
+2. House ease-out: `cubic-bezier(0.22, 1, 0.36, 1)`. Never `ease-in` on UI.
+3. Functional UI under 300ms. Exits ~half the enter.
+4. Enter from `scale(0.95)` + opacity, never `scale(0)`. Press: `scale(0.96)`, never below `0.95`.
+5. Re-triggerable motion: CSS transitions, not keyframes.
+6. Animate `transform`/`opacity` only for movement. No `transition: all`. Always `prefers-reduced-motion`. Gate hover behind `(hover: hover)`.
+7. Outer radius = inner radius + padding. Depth from layered shadow, not solid border chrome.
+8. No emoji as UI chrome; no gradient text; no gradient-square logos; no neon glow shadows.
+9. No em dashes in UI copy; no "No X, no Y, just Z"; no hype adjectives without numbers.
 
-**Decide whether to animate before you touch how.** The most common motion mistake
-is not a weak easing curve. It is animating something that should never have moved.
+## Common mistakes
 
-**Why:** anything a user fires hundreds of times a day, like a keyboard shortcut or a
-command palette, needs to be instant. Put an animation there and it reads as lag
-every single time, forever. The frequency framework is in
-[motion.md](./motion.md#1-should-this-animate-at-all). Easing, duration, springs:
-none of it matters until "should this animate?" is a clear yes.
-
-A handful of defaults worth keeping in your head (all explained in the deep-dives):
-
-- House ease-out is `cubic-bezier(0.22, 1, 0.36, 1)`. Never `ease-in` on UI.
-- Functional UI motion stays under 300ms. Exits run about half the enter.
-- Enter from `scale(0.95)`, never `scale(0)`. Press feedback is `scale(0.96)`, never below `0.95`.
-- Anything re-triggerable uses CSS transitions, not keyframes.
-- Animate `transform` and `opacity` only. Never `transition: all`. Always ship a `prefers-reduced-motion` guard.
-- Outer radius equals inner radius plus padding. Depth comes from layered shadow, not a solid border.
-- No emoji as UI, no gradient text, no gradient-square logos, no neon glow shadows.
-- No em dashes in the copy, and no "No X, no Y, just Z" subheads.
+| Mistake | Fix |
+| --- | --- |
+| Same radius on parent and padded child | `outer = inner + padding` |
+| `transition: all` | Name exact properties |
+| `ease-in` on enter/exit | Strong custom `ease-out` |
+| `scale(0)` entrance | `scale(0.95)` + opacity |
+| Animation on command palette / shortcut | Remove motion |
+| Catalog recipe before frequency check | Read [motion.md](./motion.md) first |
+| Solid card border for depth | Layered transparent `box-shadow` |
+| Popover scales from center | Origin from trigger (modals stay centered) |
+| Emoji / Lucide-everywhere as hero decoration | Real mark or nothing; icons must match labels |
+| Mood kicker + dual CTAs + three feature cards in hero | One headline, one support line, one CTA group |
+| Em dash or "No X, no Y, just Z" | Plain punctuation; positive specific claim |
+| Loading every skill file for a one-line tweak | Use the mode table; load one topic |
 
 ## Reviewing UI
 
-Present every change as a **markdown table with Before / After / Why columns**,
-grouped under the principle it belongs to. One row per change, each on a single diff
-so the list scans in seconds. Name the file and the exact property when the snippet
-alone doesn't make it obvious. If you checked a principle and nothing needed fixing,
-drop it. An empty table is just noise.
+Present every change as a **markdown table with Before / After / Why**, grouped under the principle. One row per change. Cite file and property when the snippet alone is unclear. Drop principles with nothing to fix.
 
 #### Motion
 | Before | After | Why |
 | --- | --- | --- |
-| `transition: all 300ms` | `transition: transform 200ms var(--ease-out)` | Name exact properties; `all` lets unrelated changes animate for free |
-| `transform: scale(0)` entry | `transform: scale(0.95); opacity: 0` | Nothing in the real world appears from nothing |
-| `ease-in` on a dropdown | a strong `ease-out` curve | `ease-in` stalls at the exact moment the user is watching |
-| animation on a keyboard action | no animation | Fired 100x/day, so motion reads as lag |
+| `transition: all 300ms` | `transition: transform 200ms var(--ease-out)` | Name exact properties; `all` animates unrelated changes |
+| `transform: scale(0)` entry | `transform: scale(0.95); opacity: 0` | Nothing real appears from nothing |
+| `ease-in` on a dropdown | strong `ease-out` | `ease-in` stalls when the user is watching |
+| animation on a keyboard action | no animation | Fired 100×/day; motion reads as lag |
 
 #### Surfaces
 | Before | After | Why |
 | --- | --- | --- |
-| `rounded-xl` card + `rounded-xl` inner (`p-2`) | `rounded-2xl` card, `rounded-lg` inner | Concentric: outer equals inner plus padding |
-| solid border on a card | layered `box-shadow` | Shadows sit on any background; a border color only works on one |
-| `transform-origin: center` on a popover | trigger-anchored origin variable | Popovers grow from their trigger (modals stay centered) |
+| `rounded-xl` card + `rounded-xl` inner (`p-2`) | `rounded-2xl` card, `rounded-lg` inner | Concentric: outer = inner + padding |
+| solid border on a card | layered `box-shadow` | Shadows work on any background |
+| `transform-origin: center` on a popover | trigger-anchored origin | Popovers grow from their trigger |
 
 #### Aesthetics
 | Before | After | Why |
 | --- | --- | --- |
-| lightning-bolt emoji in a status badge | Lucide icon or a small colored dot | Emoji as chrome reads as a placeholder nobody replaced |
-| gradient text on a headline word | accent color, flat | Gradient text is the generic generated-landing-page move |
-| purple glow shadow under a button | neutral low-opacity shadow | Glow is decoration, not depth |
+| emoji in a status badge | Lucide icon or colored dot | Emoji chrome reads as placeholder |
+| gradient text on a headline word | flat accent color | Generated-landing-page tell |
+| purple glow under a button | neutral low-opacity shadow | Glow is decoration, not depth |
+| pill kicker above H1 | cut it, or fold a fact into the headline | Mood-pill hero chrome is templated |
 
 #### Color
 | Before | After | Why |
 | --- | --- | --- |
-| light-gray placeholder at ~2:1 | darken to meet 4.5:1 | Body and placeholder text must clear AA |
-| white label on a mid-tone accent button | darker accent or dark ink label | White-on-accent often fails 4.5:1 |
-| error shown by red border only | red border plus message and icon | Color-alone fails for color-blind users |
-| `outline: none` on a button | visible `:focus-visible` ring at 3:1 | Keyboard users navigate by the focus ring |
+| light-gray placeholder ~2:1 | darken to 4.5:1 | Body and placeholders must clear AA |
+| white label on mid-tone accent | darker fill or dark ink | White-on-accent often fails 4.5:1 |
+| error by red border only | border + message + icon | Color-alone fails for color-blind users |
+| `outline: none` | visible `:focus-visible` at 3:1 | Keyboard users need the ring |
 
 #### Copy
 | Before | After | Why |
 | --- | --- | --- |
-| "go green below — then roll it back" | "go green below, then roll it back" | Em dash is the top tell of generated text |
+| "go green below — then roll it back" | "go green below, then roll it back" | Em dash is the top generated-text tell |
 | "No streaks, no badges, just focus" | "One timer, then you're done" | Negation-triad is banned filler |
-| "Built for one wallet, not a finance team" | "Built for one wallet" | "X, not Y" positions by what it isn't |
-| mood kicker above the H1 ("A printed monthly...") | cut it, or fold a real fact into the headline | Mood-kicker over the title is a templated tell |
-| "blazing fast deploys" | "cold start under 40ms" | Specific claims beat hype adjectives |
+| "blazing fast deploys" | "cold start under 40ms" | Specific claims beat hype |
 
-Don't write findings as loose "Before:" / "After:" lines outside a table.
+Do not write loose "Before:" / "After:" lines outside a table.
 
 ## Review checklist
 
-Direction (from the brief)
-- [ ] Choices are anchored in the product's actual world, not generic defaults
-- [ ] Not landing in a default look by accident (cream+serif+terracotta, dark+acid-green, white+blue SaaS) unless the brief asked for it
-- [ ] One signature element; everything around it stays quiet
+Direction
+- [ ] Anchored in the product's world, not generic defaults
+- [ ] Not accidentally cream+serif+terracotta, dark+acid-green, or white+blue SaaS unless the brief asked
+- [ ] One signature element; everything else stays quiet
 - [ ] Shown cold, someone could tell which product this is
 
 Surfaces and type
-- [ ] Nested rounded elements use concentric radius (outer equals inner plus padding)
-- [ ] Icons are optically centered, not just geometrically
-- [ ] Depth comes from layered shadow; borders only for dividers/inputs
-- [ ] Card shadows aren't clipped by an `overflow: hidden` ancestor (check bottom/right edges)
-- [ ] Images carry a pure-black/white 1px outline at 10% opacity
-- [ ] Interactive elements have 40x40px or larger hit areas that never overlap
-- [ ] Headings use `text-wrap: balance`; body uses `text-wrap: pretty`
-- [ ] Root has `-webkit-font-smoothing: antialiased`
-- [ ] Numbers that update use `tabular-nums`
+- [ ] Nested radii are concentric
+- [ ] Icons optically centered
+- [ ] Depth from layered shadow; borders for dividers/inputs
+- [ ] Card shadows not clipped by `overflow: hidden`
+- [ ] Images: pure black/white 1px outline at 10% opacity
+- [ ] Hit areas ≥40×40px and non-overlapping
+- [ ] Headings `text-wrap: balance`; body `pretty`
+- [ ] Root `-webkit-font-smoothing: antialiased`
+- [ ] Updating numbers use `tabular-nums`
 
 Motion
-- [ ] Every animation has a reason, and frequent/keyboard actions aren't animated
-- [ ] Easing is a strong `ease-out` (or `ease-in-out` for on-screen movement); no `ease-in`
-- [ ] Functional durations stay under 300ms; exits are quicker than enters
-- [ ] Entrances start from `scale(0.95)` plus opacity, split and staggered where it helps
-- [ ] Press feedback is `scale(0.96)`, never below `0.95`
+- [ ] Every animation has a reason; frequent/keyboard actions are not animated
+- [ ] Strong `ease-out` (or `ease-in-out` for on-screen move); no `ease-in`
+- [ ] Functional durations under 300ms; exits quicker than enters
+- [ ] Entrances from `scale(0.95)` + opacity; split/stagger where it helps
+- [ ] Press `scale(0.96)`, never below `0.95`
 - [ ] Re-triggerable motion uses transitions, not keyframes
-- [ ] Popovers are origin-aware (modals stay centered)
-- [ ] Only `transform`/`opacity` animate for movement; no `transition: all`
-- [ ] `will-change` only on compositor-friendly props, only where stutter is real
-- [ ] Every animation ships a `prefers-reduced-motion` guard; hover effects gated behind `(hover: hover)`
+- [ ] Popovers origin-aware; modals centered
+- [ ] Only `transform`/`opacity` for movement; no `transition: all`
+- [ ] `will-change` only on compositor props where stutter is real
+- [ ] `prefers-reduced-motion` on every animation; hover gated with `(hover: hover)`
 
 Color and contrast
-- [ ] Body text meets 4.5:1; large text/headings meet 3:1; placeholders still meet 4.5:1
-- [ ] Button labels pass contrast on their own fill (white-on-accent often fails)
-- [ ] Input borders, icons, and focus rings meet 3:1
-- [ ] No state relies on color alone; it survives a grayscale check
-- [ ] Every interactive element has a visible `:focus-visible` style
+- [ ] Body 4.5:1; large text 3:1; placeholders still 4.5:1
+- [ ] Button labels pass on their fill
+- [ ] Input borders, icons, focus rings meet 3:1
+- [ ] No state relies on color alone
+- [ ] Every interactive element has visible `:focus-visible`
 
 Aesthetics and copy
-- [ ] No emoji used as an icon, bullet, or badge marker; icons match their labels
-- [ ] No gradient on text; logo/app icon is a solid fill or real mark, not a gradient square
-- [ ] Background is flat or a single-hue wash, not a multi-color blob
-- [ ] Button and card shadows are neutral, not a colored glow
-- [ ] No em dashes or en dashes in any UI copy
-- [ ] No "No X, no Y, just Z" or "X, not Y" buildup; no hype clichés (blazing fast, seamless, 10x)
-- [ ] Sentence case on headings, buttons, and labels; claims are specific
-- [ ] No mood-only kicker above the headline; hero subhead is 1 to 2 lines, one idea
-- [ ] Primary CTA names the outcome ("Mail me issue 15"), not the system action ("Submit")
-- [ ] Deliberate choices on color, type, density, radius, and motion character (not the same defaults every time)
+- [ ] No emoji as icon/bullet/badge; icons match labels
+- [ ] No gradient text; logo is solid fill or real mark
+- [ ] No pill/eyebrow kicker, icon-in-colored-tile hero, or floating bobbing cards unless brief demands
+- [ ] Background flat or single-hue wash, not multi-hue aurora
+- [ ] Shadows neutral, not colored glow
+- [ ] No em/en dashes; no negation-triad or "X, not Y" buildup; no hype clichés
+- [ ] Sentence case; claims specific
+- [ ] Hero: one headline, ≤2-line subhead, one primary CTA naming an outcome
+- [ ] Deliberate color, type, density, radius, and motion character
 
 ---
 
