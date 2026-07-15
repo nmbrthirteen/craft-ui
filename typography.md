@@ -20,6 +20,22 @@ Hierarchy and rendering details that make text read as deliberate instead of def
   project already owns them. Distinctive type is a primary personality axis
   ([start-here.md](./start-here.md)).
 
+## Choosing and loading type
+
+- Prefer the project's existing font tokens. Only introduce a new pairing when the
+  brief or brand kit calls for it.
+- One display + one body is enough. A mono for code/data is optional, not a third
+  brand voice.
+- Load with `font-display: swap` (or the project's equivalent). Subset when possible.
+- Register faces in the project's theme (`@theme`, CSS variables, or design tokens),
+  not as one-off classes scattered through components.
+- Enable useful OpenType features when the face supports them (tabular nums via
+  `tabular-nums` / `tnum`; stylistic sets only when intentional).
+- Cap display size: if a clamp max sits above ~6rem / 96px without a deliberate
+  poster moment, you are shouting, not designing.
+- Build a short scale and stick to it (e.g. sm / base / lg / xl / 2xl / 4xl). Do not
+  invent a new size per section.
+
 ## Text wrapping
 
 **`text-wrap: balance`** spreads a short block evenly across its lines so a heading

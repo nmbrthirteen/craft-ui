@@ -92,6 +92,30 @@ Once contrast is satisfied, the palette is yours and is a primary way products d
 - Increase contrast for primary tasks; lower it for dividers, inactive chrome, and
   decorative marks.
 
+### Token roles
+
+Name tokens by role, not by raw hue, so components stay portable:
+
+| Role | Job |
+| --- | --- |
+| `bg` / `canvas` | Page background |
+| `surface` | Raised or recessed panels |
+| `ink` / `fg` | Primary text |
+| `muted` | Secondary text (still ≥4.5:1) |
+| `border` | Hairlines and input edges (≥3:1 when meaningful) |
+| `accent` | Primary action / links |
+| `accent-fg` | Text on accent fills |
+| `danger` / `success` / `warning` | Status (always with a non-color cue) |
+| `focus` | Focus ring |
+
+When you need a multi-step accent or neutral scale, assign steps to states once and
+reuse them: quieter backgrounds for idle, stronger for hover/active, solid fill for
+primary, darker ink for text/icons. Derive hover by stepping the scale; do not pick a
+new one-off hex per component.
+
+Ship CSS variables (or the project's token format) early so dark mode swaps roles,
+not scattered literals.
+
 ## Dark mode
 
 Dark mode is a redesign of surfaces and contrast, not an invert.

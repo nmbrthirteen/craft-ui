@@ -19,11 +19,13 @@ User direction overrides everything below. Absent a clear ask otherwise, **corre
 
 Never load every file. Never open the catalog first.
 
+When a user ask conflicts with the Floor (e.g. they want gradient text), do what they asked for that point, and keep the rest of the Floor. If the conflict is ambiguous, ask once before inventing a middle ground.
+
 ## Intent map
 
 | Intent | Load |
 | --- | --- |
-| Build UI, landing page, dashboard, new screen | [start-here.md](./start-here.md) if no direction yet, then only the floor files the work touches |
+| Build UI, landing page, dashboard, new screen | [start-here.md](./start-here.md) if no direction yet, then build order in [start-here.md](./start-here.md#4-build-on-the-quality-floor); only the floor files the work touches |
 | Shape / plan / from a brief | [start-here.md](./start-here.md) |
 | Brand kit / visual identity | [start-here.md](./start-here.md#brand-kit) |
 | Ideas / show options / compare layouts | [start-here.md](./start-here.md#ideas) |
@@ -33,9 +35,11 @@ Never load every file. Never open the catalog first.
 | Dark mode | [color.md](./color.md#dark-mode), [surfaces.md](./surfaces.md#depth-from-shadow-not-borders) |
 | Responsive / mobile | [surfaces.md](./surfaces.md#responsive) |
 | Surfaces / radius / shadow / cards / spacing | [surfaces.md](./surfaces.md) |
-| Forms / controls / nav / overlays / tables / empty states | [surfaces.md](./surfaces.md#forms-and-controls) (also nav, overlays, data, empty sections below it) |
-| Type / wrapping / tabular | [typography.md](./typography.md) |
-| Color / contrast / palette | [color.md](./color.md) |
+| Forms / controls / nav / overlays / tables / empty states | [surfaces.md](./surfaces.md#forms-and-controls) (nav, overlays, data, empty below it) |
+| Marketing sections / pricing / proof / footer | [surfaces.md](./surfaces.md#marketing-sections), [copy.md](./copy.md) |
+| Assets / images / materials | [surfaces.md](./surfaces.md#assets-and-imagery), [surfaces.md](./surfaces.md#materials) |
+| Type / wrapping / fonts / tabular | [typography.md](./typography.md) |
+| Color / contrast / palette / tokens | [color.md](./color.md) |
 | Quieter / less generated look | [aesthetics.md](./aesthetics.md), [copy.md](./copy.md) |
 | Distill / simplify | [start-here.md](./start-here.md#3-critique-the-plan-against-generator-defaults), [aesthetics.md](./aesthetics.md), [copy.md](./copy.md) |
 | Extract / reuse components | [start-here.md](./start-here.md#structure) |
@@ -46,13 +50,13 @@ Narrower intent wins when two could fit.
 
 | File | Covers |
 | --- | --- |
-| [start-here.md](./start-here.md) | Register, plan, brand kit, ideas, structure, critique, build handoff |
-| [surfaces.md](./surfaces.md) | Radius, depth, cards, spacing, responsive, forms, nav, overlays, data density, empty/loading |
-| [typography.md](./typography.md) | Hierarchy, wrapping, smoothing, tabular nums, tracking, truncation |
+| [start-here.md](./start-here.md) | Register, plan, brand kit, ideas, structure, build order, critique |
+| [surfaces.md](./surfaces.md) | Radius, depth, cards, spacing, responsive, forms, nav, overlays, data, empty, assets, materials, marketing sections |
+| [typography.md](./typography.md) | Hierarchy, choosing fonts, wrapping, smoothing, tabular nums, truncation |
 | [motion.md](./motion.md) | Animate-or-not, easing, duration, enter/exit, stagger, press, springs, a11y |
-| [color.md](./color.md) | Contrast, focus, palette, dark mode |
+| [color.md](./color.md) | Contrast, focus, palette, token roles, dark mode |
 | [aesthetics.md](./aesthetics.md) | Named generated-UI tells |
-| [copy.md](./copy.md) | Hero anatomy, kicker, CTA, microcopy |
+| [copy.md](./copy.md) | Hero anatomy, product UI copy, microcopy bans |
 | [transitions/catalog.md](./transitions/catalog.md) | Eighteen paste-ready CSS transitions + [`_root.css`](./transitions/_root.css) |
 
 ## Floor
@@ -138,7 +142,9 @@ Aesthetics and copy
 - [ ] No banned tells without an explicit ask
 - [ ] No em/en dashes; no negation-triad; no hype without numbers
 - [ ] Hero: one headline, ≤2-line subhead, one primary CTA naming an outcome
+- [ ] Assets are real or honestly temporary; materials keep contrast
 - [ ] Interaction states covered; Verify passed
+- [ ] Built in order (structure → layout → type/color → states → depth → motion → pass)
 
 ---
 

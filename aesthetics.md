@@ -21,6 +21,9 @@ These are the looks agents reach for when nobody decided. Default to the restrai
 | Nested cards | Card inside a card, or cards as the default layout for everything | One surface; spacing and type do hierarchy |
 | Default Inter/Roboto/Arial display | "Safe" system-ish face presented as the designed brand voice | A distinctive family that fits the brief, or the project's existing type tokens |
 | Cream editorial body | Warm sand/beige page + terracotta + high-contrast serif as the reflex look | Earn warmth via accent/type/imagery; body bg from the brief, not the monoculture |
+| Botched glass | Heavy blur, illegible type on frost, or glow pretending to be material | Solid surface, or real translucency with contrast + fallback |
+| Card hover-lift everywhere | Every card translates up and grows a bigger shadow on hover | Lift only interactive cards; keep it subtle; gate with `(hover: hover)` |
+| Stock collage hero | Generic people/handshakes/gradient mesh as the main visual | Real product, place, or artifact from the brief |
 
 ## No emoji as UI
 

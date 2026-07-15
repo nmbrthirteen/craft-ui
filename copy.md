@@ -113,6 +113,17 @@ Say the real number, the real outcome, the real noun. "1,284,946 deploys this we
 lands; "trusted by thousands" doesn't. Concrete copy also pairs with the typography
 rules: any number that updates uses tabular figures (see [typography.md](./typography.md)).
 
+## Product UI copy
+
+On dashboards and tools, write for operators:
+
+- Labels name the object or action in the product's vocabulary ("Run", "Rollback"),
+  not marketing headlines.
+- Prefer short status strings ("Failed · retry") over full sentences in dense tables.
+- Confirmations for destructive actions name the object ("Delete job billing-sync?").
+- Keep empty and error copy in the same voice as the rest of the product; do not
+  switch into landing-page tone inside the app.
+
 ## Quick gut check
 
 - [ ] No em dashes or en dashes anywhere in the copy
@@ -120,3 +131,4 @@ rules: any number that updates uses tabular figures (see [typography.md](./typog
 - [ ] No hype clichés (blazing fast, seamless, 10x, supercharge)
 - [ ] Sentence case on headings, buttons, and labels
 - [ ] Claims are specific numbers or outcomes, not adjectives
+- [ ] Empty / error / button labels name outcomes; product UI stays utility-voiced

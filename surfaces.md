@@ -304,3 +304,42 @@ For dashboards, tables, and settings (product register):
 - Errors say what went wrong and how to fix or retry. Pair with [copy.md](./copy.md).
 - First-run / onboarding moments can take more motion; daily empty lists stay quiet.
 
+## Assets and imagery
+
+- Prefer real product UI, photos of the actual place/object, or honest diagrams over
+  stock-looking collages and decorative fake browser chrome.
+- Screenshots and photos get the image outline rule above.
+- Placeholders: if you must stub, use clearly temporary assets and replace before
+  ship; never leave generic gradient squares as the logo.
+- Complex imagery sits on quiet backgrounds; quiet imagery can sit on richer grounds.
+  Avoid busy-on-busy.
+- SVGs: prefer `currentColor` for icons so theme and dark mode work. External mark
+  files need light and dark variants when they are not single-color.
+
+## Materials
+
+Glass, blur, and vibrancy are accents, not the default surface system.
+
+- Use translucent chrome sparingly (nav bars, sheets) when the brand earns it.
+- Text on frosted layers must still meet contrast; if it fails, raise opacity or drop
+  the effect.
+- Provide a reduced-transparency / solid fallback when `backdrop-filter` is heavy or
+  unsupported.
+- Do not fake glass with a white wash and a glow — that reads as the neon-glow tell
+  in [aesthetics.md](./aesthetics.md).
+
+## Marketing sections
+
+For brand-register pages, keep section craft consistent with the hero (one idea each):
+
+- **Feature / benefit rows:** icon or artifact + title + one short proof line. No
+  icon-in-colored-tile reflex; align columns to the page grid.
+- **Pricing:** one emphasized plan max; equal button alignment across columns; stack
+  cleanly on small screens; price uses `tabular-nums`.
+- **Proof:** logos, quotes, or metrics — real names and numbers. Hanging punctuation
+  on quotes when it helps; attribution secondary to the line.
+- **Final CTA:** restates the outcome; one primary action; no kitchen-sink furniture.
+- **Footer:** quiet, structured links; do not dominate with an oversized wordmark
+  unless it is a deliberate brand move.
+
+

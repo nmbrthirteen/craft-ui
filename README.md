@@ -12,11 +12,11 @@ paste-ready transitions when the motion decision is yes.
 
 [SKILL.md](./SKILL.md) is the entry point. Topic files load on demand:
 
-- [start-here.md](./start-here.md) — direction, brand kit, ideas, structure
-- [surfaces.md](./surfaces.md) — radius, depth, cards, spacing, responsive, forms, nav, overlays
+- [start-here.md](./start-here.md) — direction, brand kit, ideas, structure, build order
+- [surfaces.md](./surfaces.md) — radius, depth, forms, nav, overlays, assets, sections
 - [typography.md](./typography.md)
 - [motion.md](./motion.md)
-- [color.md](./color.md) — contrast, palette, dark mode
+- [color.md](./color.md) — contrast, tokens, dark mode
 - [aesthetics.md](./aesthetics.md)
 - [copy.md](./copy.md)
 - [transitions/](./transitions/) — eighteen paste-ready CSS recipes

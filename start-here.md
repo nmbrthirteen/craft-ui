@@ -77,7 +77,19 @@ None banned when earned. Banned when they appear because nobody chose.
 
 ## 4. Build on the quality floor
 
-Load only what the work touches: [surfaces.md](./surfaces.md), [typography.md](./typography.md), [motion.md](./motion.md), [color.md](./color.md), [aesthetics.md](./aesthetics.md), [copy.md](./copy.md), [transitions/catalog.md](./transitions/catalog.md). Match the project's framework and components.
+Implement in this order. Do not jump to decoration first.
+
+1. **Structure** — real content and information hierarchy in the project's stack (match existing components/tokens).
+2. **Layout** — spacing rhythm, section shells, responsive collapse ([surfaces.md](./surfaces.md)).
+3. **Type and color** — scale, weights, contrast ([typography.md](./typography.md), [color.md](./color.md)).
+4. **States** — hover/focus/pressed/disabled/loading/empty/error before polish motion.
+5. **Depth and chrome** — lightest separation, shadows/rings, nav, overlays.
+6. **Motion** — only after [motion.md](./motion.md) says yes; then catalog recipes if needed.
+7. **Pass** — [aesthetics.md](./aesthetics.md) + [copy.md](./copy.md) + checklist in [SKILL.md](./SKILL.md).
+
+Low-fi before high-fi when stuck: a short ASCII wire of the primary surface (regions only, no styling) is enough to force hierarchy. Then code the real layout.
+
+Load only what the work touches. Match the project's framework and components.
 
 ## 5. Review
 
