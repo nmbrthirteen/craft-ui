@@ -27,6 +27,12 @@ animation there reads as lag on every single open. The same rule explains why th
 catalog's 500ms tier is fine: a success check or a badge landing is rare, so it can
 afford to take its time. Frequent motion earns less time, not more.
 
+**Content is visible by default.** Never start important text or controls at
+`opacity: 0` / off-screen and rely on scroll timelines, IntersectionObserver, or
+enter animations to reveal them. If the animation never fires (background tab,
+throttling, SSR/hydration, screenshot), the section must still be fully readable.
+Animate things already on screen, or guarantee a non-hidden fallback.
+
 ### 2. What's the reason?
 
 Every animation needs a one-sentence answer to "why does this move?" The good ones:
@@ -77,6 +83,11 @@ is partly perception: a faster-spinning spinner makes a load feel quicker even w
 the real time is identical, and `ease-out` at 200ms feels faster than `ease-in` at
 200ms because the eye sees movement right away.
 
+**Perceived speed tricks that earn their keep:** skip tooltip delay after the first
+in a group is open; keep press feedback under ~160ms; never animate keyboard actions.
+Do not animate color/background hover alone for "polish" — reserve transitions for
+properties that move or transform.
+
 ### 5. Match the character to the product
 
 The framework above is universal; the values are not. A playful consumer app can run
@@ -94,6 +105,10 @@ thing, so motion shouldn't fight for it on the way out. Rule of thumb: exit in a
 half the enter duration (enter 300ms, exit 150ms). The extreme case of the same idea
 is that motion is slow where the user is deciding (a 2s hold-to-delete) and snappy
 where the system is responding (a 200ms release).
+
+**Hold-to-confirm:** progress fills while the pointer is down; release cancels.
+Animate the fill with a stable shape (width/clip), not a scale that morphs rounded
+caps mid-way. Fill the full intended track; half-built fills read broken.
 
 ## Interruptible by default: transitions over keyframes
 

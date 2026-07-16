@@ -12,8 +12,9 @@ fine.
 
 This is the implementation layer. The decisions behind these values (whether to
 animate at all, which easing, how fast) live in [../motion.md](../motion.md). Read
-that first when unsure. It's where the reasoning is, like why a modal closes faster
-than it opens and why a success check gets to run long.
+that first when unsure. **Frequency gate:** if the interaction fires tens or hundreds
+of times a day, do not paste a recipe — skip motion. It's where the reasoning is,
+like why a modal closes faster than it opens and why a success check gets to run long.
 
 ## The eighteen
 

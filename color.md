@@ -91,6 +91,12 @@ Once contrast is satisfied, the palette is yours and is a primary way products d
 - Reserve saturated color for action and meaning; let large surfaces stay calm.
 - Increase contrast for primary tasks; lower it for dividers, inactive chrome, and
   decorative marks.
+- Prefer **tonal** accents (lighter/darker/desaturated shifts off ink or canvas) over
+  one loud mid-saturation swatch sprayed on dots, buttons, and headline words.
+- Adjacent sections should share or hand off tone. Hard color seams between sections
+  are deliberate (e.g. a dark footer), not accidental palette collisions.
+- Warm cream / sand / bone body backgrounds are an overused "tasteful" default. Earn
+  them only when the brief asks; otherwise pick a specific canvas for the brand.
 
 ### Token roles
 

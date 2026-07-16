@@ -68,20 +68,23 @@ Narrower intent wins when two could fit.
 **Do not ship unless explicitly asked:**
 
 - `ease-in` on enter/exit; bounce/elastic as the house curve; `scale(0)` entrances; motion on keyboard / 100×/day actions
-- Nested cards; cards as the default layout answer
+- Content hidden behind entrance/scroll reveals with no visible fallback
+- Nested cards; cards as the default layout answer; identical icon+blurb card grids
+- Side-stripe accent bars; border + fat soft shadow together; 24px+ radius on cards by default
 - Default indigo/violet accents and gray/slate neutrals when the project has no such tokens
-- Gradient text; gradient-square logos; multi-hue aurora; colored glow shadows; pill/eyebrow kickers; icon-in-colored-tile hero chrome; emoji as chrome
-- Inter/Roboto/Arial as the unearned display face; cream/sand + terracotta + display serif as the unearned editorial default
-- Em dashes; "No X, no Y, just Z"; hype without numbers
+- Gradient text; gradient-square logos; multi-hue aurora; colored glow shadows; pill/eyebrow kickers on every section; icon-in-colored-tile hero chrome; emoji as chrome
+- Inter/Roboto/Arial or the usual free-font carousel as the unearned display face; cream/sand + terracotta + display serif as the unearned editorial default
+- Em dashes; "No X, no Y, just Z"; hype without numbers; meta-irony copy
 - Dark mode via invert / `filter: invert` on images; desktop-only layouts with no mobile path
+- Button hover "boop" (lift/scale-up); decorative grid/stripe backgrounds; sketchy SVG illustrations
 
 **Defaults worth keeping:**
 
-1. Decide whether to animate before how ([motion.md](./motion.md#1-should-this-animate-at-all))
+1. Decide whether to animate before how ([motion.md](./motion.md#1-should-this-animate-at-all)); content visible without motion
 2. Functional UI under 300ms; exits ~half the enter
 3. Re-triggerable motion uses transitions, not keyframes
 4. Lightest separation: whitespace → divider → card; outer radius = inner + padding
-5. Gate hover behind `(hover: hover)`
+5. Gate hover behind `(hover: hover)`; press feedback on `:active`, not hover lift
 
 **Cold test:** strip the logo. Could this belong to any other product in the category? If yes, return to [start-here.md](./start-here.md).
 
@@ -141,8 +144,9 @@ Color, dark, responsive
 Aesthetics and copy
 - [ ] No banned tells without an explicit ask
 - [ ] No em/en dashes; no negation-triad; no hype without numbers
-- [ ] Hero: one headline, ≤2-line subhead, one primary CTA naming an outcome
+- [ ] Hero: one headline, ≤2-line subhead, one primary CTA naming an outcome (not the default dual-CTA stack)
 - [ ] Assets are real or honestly temporary; materials keep contrast
+- [ ] Content readable without entrance motion; nothing sliced by clips; centers verified
 - [ ] Interaction states covered; Verify passed
 - [ ] Built in order (structure → layout → type/color → states → depth → motion → pass)
 

@@ -128,6 +128,9 @@ ambient shadow underneath.
 
 Custom shadows: blur roughly twice the offset; lower opacity as elevation rises.
 Elevated surfaces stay at the lightest canvas, not a darker gray card on light UI.
+Prefer a tight directional cast from one light source over a fat all-around halo.
+Do not pair a solid gray border with a wide soft shadow on the same element — pick
+an edge treatment or a ≤8px-blur shadow, not both as decoration.
 
 In dark mode the layered depth disappears against the dark surface, so collapse it
 to a single white ring and drop drop-shadows:
@@ -239,8 +242,18 @@ neighbor, shrink it to the largest size that still clears.
 
 One primary filled button per view (treat a dialog as its own view). Everything else
 is secondary, quiet, outline, or ghost. Destructive actions stay secondary until they
-are the confirm action in a dedicated confirm step. Icon-side padding matches the
-optical rules above. Keep control height stable when labels or loading text change.
+are the confirm action in a dedicated confirm step. Never make a secondary higher
+contrast than the primary.
+
+- Product/app UIs: compact control height (about 28–38px including rings); at most two
+  sizes, ≥6px apart. Marketing CTAs can be larger, but stay consistent page-wide.
+- Inline form actions (upload, resend, change photo) use the smaller size and a
+  secondary style — never the same weight as the primary submit.
+- Icon + label buttons: asymmetric padding; icon-side padding matches vertical padding
+  (see Optical over geometric alignment).
+- Prefer color/fill changes on hover over lift/scale-up ("boop"). Press scale is for
+  `:active` ([motion.md](./motion.md#scale-on-press)).
+- Keep control height stable when labels or loading text change.
 
 ## Forms and controls
 
@@ -248,6 +261,7 @@ optical rules above. Keep control height stable when labels or loading text chan
   are hints, not labels.
 - Group related fields under a short section heading. Keep vertical rhythm steady; do
   not invent a new gap per field.
+- Prefer `gap` on flex/grid parents over margin between siblings for spacing.
 - Validation: message + icon (or text) beside the field, not color alone. Prefer
   inline errors next to the control that failed. See [color.md](./color.md) and the
   error shake recipe when motion helps.
@@ -261,12 +275,14 @@ optical rules above. Keep control height stable when labels or loading text chan
 
 ## Navigation and chrome
 
-- One clear current-page / current-section indicator. Do not mark selection with color
-  alone.
+- One clear current-page / current-section indicator. Soft/muted background or darker
+  text — not a loud primary fill. Do not change font-weight between nav states.
 - Desktop header or sidebar is fine; below the desktop breakpoint ship a real mobile
   nav (menu button + panel/dialog). Hiding desktop links without a replacement is a bug.
 - Horizontal tab/pill rows that cannot fit scroll horizontally; they never wrap into
   a ragged second line of tabs or overflow the page.
+- Header link rows are usually text-only; icons belong in sidebars/toolbars when they
+  aid recognition.
 - Sidebars and filter columns collapse on small screens (see Responsive); do not
   squeeze them.
 
@@ -276,11 +292,35 @@ optical rules above. Keep control height stable when labels or loading text chan
   get clipped. Escape with a portal, `position: fixed`, popover/dialog API, or render
   outside the clipping ancestor.
 - Keep a small semantic stack: dropdown → sticky → modal backdrop → modal → toast →
-  tooltip. No `z-index: 9999` one-offs.
+  tooltip. No `z-index: 9999` one-offs. Isolate the app root when portaled UI fights
+  stacking contexts.
 - Modals and dialogs trap focus while open, restore focus on close, and offer a clear
   dismiss (scrim click and/or Escape) unless the flow is deliberately blocking.
 - Toasts and banners do not cover primary actions or the focus target without a way
   to dismiss.
+
+## Clear the cut and true center
+
+- Whenever you add `clip-path`, a notch, `overflow: hidden`, or a fixed height, prove
+  text and controls sit fully inside the visible region. Pad clear of the cut; zoom
+  the edge before shipping.
+- Center badges, avatar initials, icon buttons, and SVG labels optically and with the
+  right baseline (`dominant-baseline` / measured offset when SVG text is involved).
+  Geometric center is often wrong for glyphs.
+
+## Page consistency (brand register)
+
+On marketing pages, reuse one system across sections:
+
+- One primary and one secondary button style page-wide
+- One radius for sibling containers at the same level
+- One column gap for multi-column sections
+- One container treatment (outline vs tint) once chosen
+- Prefer left-aligned feature/content sections; center heroes, CTAs, and truly
+  symmetrical blocks. Do not stack a centered section directly under a left-aligned
+  one without a full-bleed break or divider
+- Constrain headline and subhead measure on the text nodes themselves, not a wrapping
+  box that shrinks the whole group
 
 ## Data and product density
 
@@ -291,7 +331,7 @@ For dashboards, tables, and settings (product register):
 - Tables: clear header row, consistent numeric alignment (`tabular-nums`),
   horizontal scroll when needed, no wrapped header labels.
 - Metric / KPI strips: lightest separation (dividers or whitespace), not a card per
-  stat by default.
+  stat by default. Avoid the giant-number-plus-gradient-accent template as decoration.
 - Truncate long titles with a plan (ellipsis + title/tooltip), not random wrap that
   blows row height.
 
@@ -315,6 +355,7 @@ For dashboards, tables, and settings (product register):
   Avoid busy-on-busy.
 - SVGs: prefer `currentColor` for icons so theme and dark mode work. External mark
   files need light and dark variants when they are not single-color.
+- Do not ship sketchy/doodle SVG illustrations as a stand-in for real art.
 
 ## Materials
 
@@ -339,7 +380,8 @@ For brand-register pages, keep section craft consistent with the hero (one idea 
 - **Proof:** logos, quotes, or metrics — real names and numbers. Hanging punctuation
   on quotes when it helps; attribution secondary to the line.
 - **Final CTA:** restates the outcome; one primary action; no kitchen-sink furniture.
-- **Footer:** quiet, structured links; do not dominate with an oversized wordmark
-  unless it is a deliberate brand move.
+- **Footer:** quiet, structured links on a real grid aligned to content margins; do
+  not fling clusters to opposite edges or dominate with an oversized wordmark unless
+  deliberate.
 
 

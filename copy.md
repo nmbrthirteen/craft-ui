@@ -20,7 +20,12 @@ A hero is three things, in this order, and not much else:
    or four lines of body text, cut it down: one idea above the fold, not a paragraph.
 3. **One primary CTA.** An action plus what the user gets. "Mail me issue 15" and
    "Start free" beat "Sign up" and "Learn more" because they name the outcome, not the
-   system action. A secondary action can sit beside it, quieter.
+   system action. A secondary action can sit beside it, quieter — only when it earns
+   a job, not by reflex.
+
+Avoid the default centered stack (kicker → headline → subline → dual CTAs) when the
+brief allows a stronger composition: lead with the product artifact, change the axis,
+or drop the secondary link. See [aesthetics.md](./aesthetics.md).
 
 ### The kicker above the headline
 

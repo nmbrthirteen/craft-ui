@@ -72,6 +72,9 @@ If any axis matches a default below and the brief did not ask for it, change it 
 - **Warm cream + high-contrast serif + terracotta.** "Tasteful editorial" default.
 - **Near-black + acid-green or vermilion.** "Technical dark mode" default.
 - **White + blue/violet + hero over two rounded cards + pill kicker with a dot.** "Generic SaaS" default.
+- **Centered kicker → headline → subline → dual CTAs** as the only hero composition.
+- **Identical icon+title+blurb card grids** as the whole page body.
+- **Free-font carousel** (the usual Inter / Space Grotesk / Fraunces / Figtree rotation) as identity.
 
 None banned when earned. Banned when they appear because nobody chose.
 

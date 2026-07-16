@@ -35,6 +35,13 @@ Hierarchy and rendering details that make text read as deliberate instead of def
   poster moment, you are shouting, not designing.
 - Build a short scale and stick to it (e.g. sm / base / lg / xl / 2xl / 4xl). Do not
   invent a new size per section.
+- Large display needs air: do not crush tracking until glyphs touch. Stat separators
+  and units need space. If a centered subhead runs past ~3 lines / ~120 characters,
+  left-align or shorten the copy.
+- Constrain measure on the text node (`max-width` in `ch`), not a wrapper that
+  shrinks the whole heading group.
+- Test long words at tablet/mobile widths; overflowed headlines are a layout bug,
+  not a content surprise.
 
 ## Text wrapping
 
