@@ -1,0 +1,25 @@
+/* Motion tokens for the transitions catalog. Install once, globally. */
+:root {
+  --motion-fast: 120ms;        /* hovers, presses, tooltip exits, most exits */
+  --motion-base: 200ms;        /* dropdowns, tabs, swaps: most UI */
+  --motion-slow: 320ms;        /* modals, drawers, accordions */
+  --motion-deliberate: 480ms;  /* rare moments: success draw, first reveal */
+  --motion-stagger: 30ms;      /* per-item offset in staggered entrances */
+
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-pop: linear(0, 0.68 34%, 1.06 68%, 0.99 86%, 1);
+}
+
+/* One switch disables the catalog: every recipe reads duration from these
+   tokens, so collapsing them collapses transitions and keyframes alike.
+   1ms rather than 0ms so JS waiting on transitionend still resolves. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 1ms;
+    --motion-base: 1ms;
+    --motion-slow: 1ms;
+    --motion-deliberate: 1ms;
+    --motion-stagger: 0ms;
+  }
+}
