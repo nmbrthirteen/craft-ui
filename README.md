@@ -37,6 +37,17 @@ Invoke as `/craft-ui`, or let it trigger on design and polish work. Follow
 [SKILL.md](./SKILL.md): route the ask, read project tokens first, load only the
 files that route needs.
 
+## Update
+
+Pull the latest into the install directory:
+
+```bash
+cd ~/.agents/skills/craft-ui && git pull
+```
+
+The skill loads straight from that directory, so the update is live right away.
+A symlink into `~/.claude/skills/` keeps working after a pull.
+
 ## Credits
 
 Craft UI stands on work worth reading on its own:
