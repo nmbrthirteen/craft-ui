@@ -24,12 +24,13 @@ paste-ready transitions when the motion decision is yes.
 ## Install
 
 ```bash
-git clone git@github.com:nmbrthirteen/craft-ui.git ~/.agents/skills/craft-ui
+git clone https://github.com/nmbrthirteen/craft-ui.git ~/.agents/skills/craft-ui
 ```
 
 Symlink if needed:
 
 ```bash
+mkdir -p ~/.claude/skills
 ln -s ~/.agents/skills/craft-ui ~/.claude/skills/craft-ui
 ```
 
