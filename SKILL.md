@@ -63,6 +63,8 @@ Narrower intent wins when two could fit.
 
 **Correctness (bugs if broken):** no `transition: all`; animate `transform`/`opacity` for movement; `prefers-reduced-motion`; concentric radius; real hit areas; no em dashes in UI copy; contrast/focus/color-alone in [color.md](./color.md); layouts adapt mobile → desktop; dark mode is redesigned, not inverted.
 
+**Token discipline:** no arbitrary value where a scale token exists. In Tailwind, `gap-[12px]` is `gap-3`, `text-[16px]` is `text-base`, `size-[24px]` is `size-6`, `rounded-[4px]` is `rounded`; same for color, spacing, shadow. A value with no built-in that recurs becomes a real theme token, not a repeated literal. Bracket syntax is for genuine one-offs, and say why.
+
 **Taste defaults (adapt):** house ease-out `cubic-bezier(0.25, 1, 0.5, 1)`; press `scale(0.96)`; enter from `scale(0.95)` + opacity; single-hue wash; layered shadow rgba. Personality axes that should diverge across products: color, type, density, radius, motion character, layout.
 
 **Do not ship unless explicitly asked:**
@@ -123,6 +125,7 @@ Surfaces and type
 - [ ] Optical alignment; layered shadow / dark rings; shadows not clipped
 - [ ] Image outlines black/white at 10%; hit areas ≥40×40 (≥44 touch), non-overlapping
 - [ ] Spacing rhythm (tight → group → section); headings balance; body pretty; root antialiased; tabular nums on updating numbers
+- [ ] Scale tokens over arbitrary values; recurring one-offs promoted to real tokens
 - [ ] Heading weight medium/semibold; tracking tight only on large display
 - [ ] Forms labeled; errors not color-alone; overlays not clipped; sensible z-stack
 - [ ] Product density when register is product; empty/loading/error states covered
