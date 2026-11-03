@@ -13,9 +13,9 @@ can't reproduce ([motion.md](../motion.md) describes the technique).
 ```html
 <div class="cui-tabs">
   <div class="cui-tabs-row" role="tablist">
-    <button role="tab" aria-selected="true">Day</button>
-    <button role="tab" aria-selected="false">Week</button>
-    <button role="tab" aria-selected="false">Month</button>
+    <button role="tab" aria-selected="true" tabindex="0">Day</button>
+    <button role="tab" aria-selected="false" tabindex="-1">Week</button>
+    <button role="tab" aria-selected="false" tabindex="-1">Month</button>
   </div>
   <div class="cui-tabs-row cui-tabs-overlay" aria-hidden="true">
     <button tabindex="-1">Day</button>
@@ -41,13 +41,21 @@ can't reproduce ([motion.md](../motion.md) describes the technique).
   clip-path: inset(0 100% 0 0 round 999px);
   transition: clip-path var(--motion-base) var(--ease-out);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cui-tabs-overlay {
+    transition: none;
+  }
+}
 ```
 
 ## JS
 
 ```js
+const tabs = document.querySelector(".cui-tabs");
 const row = tabs.querySelector("[role=tablist]");
 const overlay = tabs.querySelector(".cui-tabs-overlay");
+const items = [...row.querySelectorAll("[role=tab]")];
 
 function moveTo(tab) {
   const right = row.offsetWidth - tab.offsetLeft - tab.offsetWidth;
@@ -61,14 +69,45 @@ function place() {
   requestAnimationFrame(() => (overlay.style.transition = ""));
 }
 
+function select(tab) {
+  for (const item of items) {
+    const selected = item === tab;
+    item.setAttribute("aria-selected", selected);
+    item.tabIndex = selected ? 0 : -1;
+  }
+  moveTo(tab);
+}
+
+row.addEventListener("click", (event) => {
+  const tab = event.target.closest("[role=tab]");
+  if (tab) select(tab);
+});
+
+row.addEventListener("keydown", (event) => {
+  const current = items.indexOf(document.activeElement);
+  const target = {
+    ArrowLeft: (current - 1 + items.length) % items.length,
+    ArrowRight: (current + 1) % items.length,
+    Home: 0,
+    End: items.length - 1,
+  }[event.key];
+  if (current === -1 || target === undefined) return;
+  event.preventDefault();
+  items[target].focus();
+  select(items[target]);
+});
+
 place();
 new ResizeObserver(place).observe(row);
 ```
 
-On tab click, update `aria-selected` and call `moveTo(tab)`.
-
 ## Notes
 
+- Animating `clip-path` is the clip case of the
+  [reveal exception](../motion.md#the-reveal-exception).
+- Roving `tabindex`: only the selected tab is in the Tab order, and arrow keys,
+  Home, and End move focus and selection together (automatic activation).
+  Under reduced motion the highlight jumps instead of sliding.
 - `aria-selected` is the state; the overlay copy is `aria-hidden` with
   `tabindex="-1"` so assistive tech and Tab order only ever see the real row.
 - `place()` writes the first position with transitions suppressed. Skip that

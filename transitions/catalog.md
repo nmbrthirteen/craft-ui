@@ -12,17 +12,25 @@ whole trigger, and JS appears only where the platform has no primitive yet.
 ## Shared conventions
 
 - **Tokens** come from [`_root.css`](./_root.css): four durations, three eases,
-  one stagger step. Recipes never hardcode timing.
+  one stagger step, two delays, one movement multiplier. Recipes never
+  hardcode timing, except the two ambient loops (skeleton pulse, button
+  spinner).
 - **Exits step down one token** from their enter (open at `--motion-slow`,
   close at `--motion-base`). The user asked for the surface; they only tolerate
   its exit.
-- **State lives in attributes the UI already needs**: `aria-selected`,
-  `aria-invalid`, `aria-busy`, `aria-pressed`, `[open]`, `:popover-open`.
-  Styling reads those directly, so visuals can't drift out of sync with
-  semantics, and there is no parallel class for JS to forget.
-- **Reduced motion is one switch**: the token collapse in `_root.css` covers
-  every tokened transition and keyframe. The two recipes with untokened
-  ambient animation (skeleton pulse, button spinner) carry their own guard.
+- **State lives in attributes**: `aria-selected`, `aria-invalid`, `aria-busy`,
+  `aria-pressed`, `[open]`, `:popover-open` where the UI already needs them,
+  and `data-state` (`bumped`, `out`, `leaving`, `done`) where no semantic
+  attribute exists. Styling reads those directly, so visuals can't drift out
+  of sync with semantics, and there is no parallel class for JS to forget.
+- **Reduced motion is one switch**: `_root.css` pulls every duration down to
+  `--motion-fast` so fades survive, and sets `--motion-travel` to 0 so every
+  translate, scale, and rotate that multiplies it flattens. The recipes with
+  untokened ambient animation (skeleton pulse, button spinner) and the
+  drawer carry their own guard.
+- **Transform and opacity only**, with one named exception: the
+  [reveal exception](../motion.md#the-reveal-exception) for size-to-content and
+  clip reveals (accordion, toast, tabs, success draw).
 - **Class prefix `cui-`** keeps the recipes collision-free; rename to the
   project's convention when pasting.
 
@@ -96,8 +104,9 @@ means the answer is no animation ([../motion.md](../motion.md#the-decision)).
 3. Wire the state attribute the recipe documents. If the project toggles a
    different attribute or class, adapt the selector, never bolt on a second
    state.
-4. Keep the reduced-motion behavior: the token collapse, plus the local guards
-   in skeleton and button-loading.
+4. Keep the reduced-motion behavior: `--motion-travel` and the shortened
+   durations, plus the local guards in skeleton, button-loading, drawer,
+   accordion, and tabs.
 5. Baseline: `@starting-style` and `allow-discrete` are cross-browser as of
    2024\. Where a recipe leans newer (`interpolate-size`, view transitions),
    its notes name the fallback, and the fallback is always "works, without the

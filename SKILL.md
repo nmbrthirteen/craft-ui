@@ -12,10 +12,10 @@ User direction overrides everything below. Absent a clear ask otherwise, **corre
 ## Setup
 
 1. **Route** with the [Intent map](#intent-map). Load only the listed files.
-2. **Read the project** — tokens, theme, global CSS, or a representative component. Match that stack. Prefer existing components and tokens.
-3. **Pick the register** — Brand (marketing/landing/portfolio: design IS the product) or Product (app/dashboard/tool: design SERVES the product). Task cue wins.
-4. **Motion** — decide in [motion.md](./motion.md) before opening [transitions/catalog.md](./transitions/catalog.md).
-5. **Ship** — walk the [Checklist](#checklist), run [Verify](#verify), fix misses. Reviews use Before / After / Why tables only.
+2. **Read the project**: tokens, theme, global CSS, or a representative component. Match that stack. Prefer existing components and tokens.
+3. **Pick the register**: Brand (marketing/landing/portfolio: design *is* the product) or Product (app/dashboard/tool: design *serves* the product). Task cue wins.
+4. **Motion**: decide in [motion.md](./motion.md) before opening [transitions/catalog.md](./transitions/catalog.md).
+5. **Ship**: walk the [Checklist](#checklist), run [Verify](#verify), fix misses. Reviews use Before / After / Why tables only.
 
 Never load every file. Never open the catalog first.
 
@@ -61,7 +61,7 @@ Narrower intent wins when two could fit.
 
 ## Floor
 
-**Correctness (bugs if broken):** no `transition: all`; animate `transform`/`opacity` for movement; `prefers-reduced-motion`; concentric radius; real hit areas; no em dashes in UI copy; contrast/focus/color-alone in [color.md](./color.md); layouts adapt mobile → desktop; dark mode is redesigned, not inverted.
+**Correctness (bugs if broken):** no `transition: all`; animate `transform`/`opacity` for movement (sole exception: [reveal exception](./motion.md#the-reveal-exception)); `prefers-reduced-motion`; concentric radius; real hit areas; no em dashes in UI copy; contrast/focus/color-alone in [color.md](./color.md); layouts adapt mobile → desktop; dark mode is redesigned, not inverted.
 
 **Token discipline:** no arbitrary value where a scale token exists. In Tailwind, `gap-[12px]` is `gap-3`, `text-[16px]` is `text-base`, `size-[24px]` is `size-6`, `rounded-[4px]` is `rounded`; same for color, spacing, shadow. A value with no built-in that recurs becomes a real theme token, not a repeated literal. Bracket syntax is for genuine one-offs, and say why.
 
@@ -111,7 +111,7 @@ Markdown tables with **Before | After | Why**, one row per change, grouped by pr
 | `transition: all 300ms` | `transition: transform 200ms var(--ease-out)` | Name exact properties |
 | card nested in card | single surface | Nested cards are lazy hierarchy |
 | light palette inverted for dark | redesigned surfaces, ring not drop-shadow | Invert is not dark mode |
-| "go green — then roll it back" | comma or two sentences | Em dash reads as generated |
+| a dash splitting a headline clause | comma or two sentences | The dash reads as generated |
 
 ## Checklist
 
@@ -136,7 +136,7 @@ Motion
 - [ ] Strong ease-out; no ease-in; no bounce/elastic house curve
 - [ ] Under 300ms; exits quicker; enter from 0.95; press 0.96
 - [ ] Transitions for re-triggerable; popovers origin-aware
-- [ ] transform/opacity only; no `transition: all`; reduced-motion; hover gated
+- [ ] transform/opacity only (except the [reveal exception](./motion.md#the-reveal-exception)); no `transition: all`; reduced-motion; hover gated
 
 Color, dark, responsive
 - [ ] Body 4.5:1; large 3:1; placeholders 4.5:1; focus 3:1

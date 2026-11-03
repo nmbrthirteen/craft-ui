@@ -19,8 +19,8 @@ Open with `dialog.showModal()`, close with `dialog.close()`.
 ```css
 .cui-modal {
   opacity: 0;
-  translate: 0 12px;
-  scale: 0.98;
+  translate: 0 calc(12px * var(--motion-travel));
+  scale: calc(1 - 0.02 * var(--motion-travel));
   transition:
     opacity var(--motion-base) var(--ease-out),
     translate var(--motion-base) var(--ease-out),
@@ -37,25 +37,26 @@ Open with `dialog.showModal()`, close with `dialog.close()`.
 
   @starting-style {
     opacity: 0;
-    translate: 0 12px;
-    scale: 0.98;
+    translate: 0 calc(12px * var(--motion-travel));
+    scale: calc(1 - 0.02 * var(--motion-travel));
   }
 }
 
 .cui-modal::backdrop {
-  background: rgb(0 0 0 / 0);
+  background: rgb(0 0 0 / 0.4);
+  opacity: 0;
   transition:
-    background var(--motion-base) var(--ease-out),
+    opacity var(--motion-base) var(--ease-out),
     display var(--motion-base) allow-discrete,
     overlay var(--motion-base) allow-discrete;
 }
 
 .cui-modal[open]::backdrop {
-  background: rgb(0 0 0 / 0.4);
+  opacity: 1;
   transition-duration: var(--motion-slow);
 
   @starting-style {
-    background: rgb(0 0 0 / 0);
+    opacity: 0;
   }
 }
 ```
@@ -66,6 +67,8 @@ Open with `dialog.showModal()`, close with `dialog.close()`.
   transition is skipped.
 - The small rise plus scale reads as the dialog arriving. A bare opacity fade on
   a large surface reads as a rendering glitch.
+- The backdrop keeps a fixed color and fades with `opacity`, which stays on the
+  compositor. Animating `background` would repaint every frame.
 - Backdrop around 0.4 opacity. Near-black behind a modal turns the page into a
   photo lightbox.
 - Enter runs `--motion-slow`, exit `--motion-base`: the user asked for the

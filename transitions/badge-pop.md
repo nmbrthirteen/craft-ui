@@ -28,17 +28,17 @@ A count badge that pops in when it appears and bumps when the number changes.
     opacity var(--motion-fast) var(--ease-out);
 
   @starting-style {
-    scale: 0.5;
+    scale: calc(1 - 0.5 * var(--motion-travel));
     opacity: 0;
   }
 }
 
-.cui-badge.is-bumped {
+.cui-badge[data-state="bumped"] {
   animation: cui-bump var(--motion-base) var(--ease-pop);
 }
 
 @keyframes cui-bump {
-  50% { scale: 1.25; }
+  50% { scale: calc(1 + 0.25 * var(--motion-travel)); }
 }
 ```
 
@@ -47,9 +47,9 @@ A count badge that pops in when it appears and bumps when the number changes.
 ```js
 function setCount(badge, n) {
   badge.textContent = n;
-  badge.classList.remove("is-bumped");
+  delete badge.dataset.state;
   void badge.offsetWidth;
-  badge.classList.add("is-bumped");
+  badge.dataset.state = "bumped";
 }
 ```
 

@@ -20,7 +20,7 @@ A hero is three things, in this order, and not much else:
    or four lines of body text, cut it down: one idea above the fold, not a paragraph.
 3. **One primary CTA.** An action plus what the user gets. "Mail me issue 15" and
    "Start free" beat "Sign up" and "Learn more" because they name the outcome, not the
-   system action. A secondary action can sit beside it, quieter — only when it earns
+   system action. A secondary action can sit beside it, quieter, and only when it earns
    a job, not by reflex.
 
 Avoid the default centered stack (kicker → headline → subline → dual CTAs) when the
@@ -61,16 +61,16 @@ out of scope here; keep claims specific and the structure honest.
 
 ## No em dashes or en dashes in UI copy
 
-Don't use — or – in headlines, subheads, body copy, button labels, tooltips, or
+Don't use the em dash or the en dash in headlines, subheads, body copy, button labels, tooltips, or
 empty states. Use a period, a comma, a colon, or split into two sentences.
 
 **Why:** the em dash is the number-one tell of generated text. Readers clock it
 instantly now, and one of them in a hero subhead makes the whole product feel
 auto-written.
 
-- Bad: "Watch a deploy go green below — then roll it back."
+- Bad: "Watch a deploy go green below [em dash] then roll it back."
 - Good: "Watch a deploy go green below, then roll it back."
-- Bad: "Fast, reliable — and built for teams."
+- Bad: "Fast, reliable [em dash] and built for teams."
 - Good: "Fast, reliable, and built for teams." or two sentences.
 
 For numeric ranges in copy, use a plain hyphen ("5-10 minutes"), not an en dash.

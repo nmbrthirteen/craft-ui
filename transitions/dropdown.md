@@ -18,7 +18,7 @@ free and there is no open/close JS to write.
 ```css
 .cui-dropdown {
   opacity: 0;
-  scale: 0.96;
+  scale: calc(1 - 0.04 * var(--motion-travel));
   transform-origin: top;
   transition:
     opacity var(--motion-fast) var(--ease-out),
@@ -34,7 +34,7 @@ free and there is no open/close JS to write.
 
   @starting-style {
     opacity: 0;
-    scale: 0.96;
+    scale: calc(1 - 0.04 * var(--motion-travel));
   }
 }
 ```
@@ -50,4 +50,5 @@ free and there is no open/close JS to write.
   anywhere but the trigger breaks the illusion that the trigger produced it.
 - Position with CSS anchor positioning where available, otherwise whatever
   positioning you already have. The recipe owns only the enter and exit.
-- Reduced motion is covered by the token collapse in [`_root.css`](./_root.css).
+- Reduced motion is covered by `--motion-travel` in [`_root.css`](./_root.css):
+  the scale stays at 1 and the fade remains.

@@ -24,24 +24,24 @@ main {
 }
 
 ::view-transition-old(view) {
-  animation: cui-view-out var(--motion-base) var(--ease-in-out) both;
+  animation: cui-view-out var(--motion-base) var(--ease-out) both;
 }
 
 ::view-transition-new(view) {
-  animation: cui-view-in var(--motion-base) var(--ease-in-out) both;
+  animation: cui-view-in var(--motion-base) var(--ease-out) both;
 }
 
 @keyframes cui-view-out {
   to {
     opacity: 0;
-    translate: -24px 0;
+    translate: calc(-24px * var(--motion-travel)) 0;
   }
 }
 
 @keyframes cui-view-in {
   from {
     opacity: 0;
-    translate: 24px 0;
+    translate: calc(24px * var(--motion-travel)) 0;
   }
 }
 ```
@@ -56,5 +56,5 @@ main {
 - Same-document only as written. For full page navigations, add
   `@view-transition { navigation: auto; }` and the same keyframes work
   cross-document.
-- The keyframes read `--motion-base`, so the reduced-motion token collapse
-  covers them too.
+- The keyframes read `--motion-base` and `--motion-travel`, so reduced motion
+  keeps the crossfade and drops the slide.

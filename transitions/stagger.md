@@ -24,7 +24,7 @@ states, onboarding steps, the first paint of a short list.
 
   @starting-style {
     opacity: 0;
-    translate: 0 10px;
+    translate: 0 calc(10px * var(--motion-travel));
   }
 }
 ```

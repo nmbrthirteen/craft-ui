@@ -25,9 +25,10 @@ user is watching. Never attach it to actions that repeat all day
   stroke-dashoffset: 1;
 }
 
-.cui-check.is-done path {
+.cui-check[data-state="done"] path {
   stroke-dashoffset: 0;
-  transition: stroke-dashoffset var(--motion-deliberate) var(--ease-out) 80ms;
+  transition: stroke-dashoffset var(--motion-deliberate) var(--ease-out)
+    var(--motion-delay-settle);
 }
 ```
 
@@ -36,9 +37,11 @@ user is watching. Never attach it to actions that repeat all day
 - `pathLength="1"` normalizes any path to length 1, so the dash math never
   needs `getTotalLength()` and you can swap in your own checkmark path
   untouched.
-- The 80ms delay gives whatever just happened (button swap, modal close) a
+- Drawing the stroke is a clip-style reveal, covered by the
+  [reveal exception](../motion.md#the-reveal-exception).
+- `--motion-delay-settle` (80ms) gives whatever just happened (button swap, modal close) a
   beat to settle so the draw reads as its own moment.
-- Replay for testing: remove `is-done`, read `el.offsetWidth` to force a
+- Replay for testing: remove `data-state`, read `el.offsetWidth` to force a
   reflow, add it back.
 - Pair with a circle or badge behind it entering one token faster
   (`--motion-slow`), so the stage arrives before the performance.

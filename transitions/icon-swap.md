@@ -31,14 +31,14 @@ Pure CSS off the attribute the control already toggles.
 
 .cui-icon-b {
   opacity: 0;
-  rotate: -60deg;
-  scale: 0.6;
+  rotate: calc(-60deg * var(--motion-travel));
+  scale: calc(1 - 0.4 * var(--motion-travel));
 }
 
 .cui-icon-swap[aria-pressed="true"] .cui-icon-a {
   opacity: 0;
-  rotate: 60deg;
-  scale: 0.6;
+  rotate: calc(60deg * var(--motion-travel));
+  scale: calc(1 - 0.4 * var(--motion-travel));
 }
 
 .cui-icon-swap[aria-pressed="true"] .cui-icon-b {

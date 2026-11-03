@@ -22,10 +22,10 @@ animation can't fire without the semantics.
 }
 
 @keyframes cui-shake {
-  20% { translate: -5px 0; }
-  45% { translate: 4px 0; }
-  70% { translate: -2px 0; }
-  90% { translate: 1px 0; }
+  20% { translate: calc(-5px * var(--motion-travel)) 0; }
+  45% { translate: calc(4px * var(--motion-travel)) 0; }
+  70% { translate: calc(-2px * var(--motion-travel)) 0; }
+  90% { translate: calc(1px * var(--motion-travel)) 0; }
 }
 
 .cui-field-error {
@@ -36,7 +36,7 @@ animation can't fire without the semantics.
 
   @starting-style {
     opacity: 0;
-    translate: 0 -4px;
+    translate: 0 calc(-4px * var(--motion-travel));
   }
 }
 ```
@@ -59,5 +59,7 @@ field.style.animation = "";
   read as a metronome.
 - Shake the field alone. If the label and message swing too, the whole form
   panics.
+- Under reduced motion the shake flattens to nothing. The red border and the
+  message carry the error.
 - The message must say what's wrong; the shake plus red is never enough on its
   own ([color.md](../color.md): never color alone).

@@ -24,7 +24,7 @@ The only question that matters first is how often the user sees it.
 
 **Why:** a command palette opened a hundred times a day should open instant. An
 animation there reads as lag on every single open. The same rule explains why the
-catalog's 500ms tier is fine: a success check or a badge landing is rare, so it can
+catalog's 480ms tier (`--motion-deliberate`) is fine: a success check or a badge landing is rare, so it can
 afford to take its time. Frequent motion earns less time, not more.
 
 **Content is visible by default.** Never start important text or controls at
@@ -64,7 +64,7 @@ ease-out as the house curve and stay consistent across the project:
 
 ```css
 --ease-out:    cubic-bezier(0.25, 1, 0.5, 1);    /* snappy UI exits */
---ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);  /* on-screen movement */
+--ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);    /* on-screen movement */
 --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);   /* iOS-like drawer pull */
 ```
 
@@ -85,7 +85,7 @@ the real time is identical, and `ease-out` at 200ms feels faster than `ease-in` 
 
 **Perceived speed tricks that earn their keep:** skip tooltip delay after the first
 in a group is open; keep press feedback under ~160ms; never animate keyboard actions.
-Do not animate color/background hover alone for "polish" — reserve transitions for
+Do not animate color/background hover alone for "polish". Reserve transitions for
 properties that move or transform.
 
 ### 5. Match the character to the product
@@ -136,7 +136,7 @@ hardware-accelerated, interruptible, no library.
 ```js
 el.animate(
   [{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0 0)" }],
-  { duration: 1000, fill: "forwards", easing: "cubic-bezier(0.77, 0, 0.175, 1)" }
+  { duration: 1000, fill: "forwards", easing: "cubic-bezier(0.45, 0, 0.55, 1)" }
 );
 ```
 
@@ -214,7 +214,7 @@ list or a drawer closing.
 .item-exit {                         /* good: quiet, directional, fast */
   opacity: 0;
   transform: translateY(-12px);
-  transition: opacity 150ms ease-in, transform 150ms ease-in;
+  transition: opacity 150ms var(--ease-out), transform 150ms var(--ease-out);
 }
 ```
 
@@ -380,7 +380,8 @@ blur is expensive, Safari especially.
 
 - **Animate only `transform` and `opacity`** for movement. They skip layout and paint
   and run on the GPU. Animating `width`, `height`, `margin`, or `padding` fires the
-  whole pipeline and drops frames.
+  whole pipeline and drops frames. The one named exception is the
+  [reveal exception](#the-reveal-exception) below.
 - **Prefer percentage transforms.** `translateY(100%)` moves an element by its own
   height regardless of its actual size, so it adapts to content and is harder to get
   wrong than hardcoded pixels.
@@ -413,11 +414,28 @@ blur is expensive, Safari especially.
   jank (Safari benefits most). Never `will-change: all`, because every layer costs
   memory.
 
+### The reveal exception
+
+Size-to-content and clip reveals may animate non-composite properties
+(`block-size` or `grid-template-rows` to or from `auto`, `clip-path`, and
+`stroke-dashoffset`) when all of these hold:
+
+- The property change is the reveal itself and has no transform equivalent.
+- It runs on one bounded element per user action, never per frame of input.
+- Duration comes from a motion token, and a `prefers-reduced-motion` path exists.
+
+Recipes that rely on it link back here: accordion, toast, tabs, success draw.
+Anything that can be a `transform` or `opacity` change, such as a backdrop
+fade, stays one.
+
 ## Accessibility
 
 **Honor `prefers-reduced-motion`.** Reduced motion means fewer and gentler
 animations, not zero. Keep the opacity and color transitions that aid comprehension,
-and drop the movement and position changes.
+and drop the movement and position changes. The catalog does this with one
+variable: `--motion-travel` is 1, and 0 under reduced motion, and every
+translate, scale, and rotate multiplies it
+([`transitions/_root.css`](./transitions/_root.css)).
 
 ```css
 @media (prefers-reduced-motion: reduce) {
