@@ -1,7 +1,7 @@
 # Craft UI
 
-Design engineering for interfaces that feel finished — direction, build, motion,
-dark mode, responsive, anti-slop, and ship review — by
+Design engineering for interfaces that feel finished: direction, build, motion,
+dark mode, responsive, anti-slop, and ship review, by
 [Nika Siradze](https://nikusha.com).
 
 Working code is free. Craft UI is the judgment layer after: concentric radius,
@@ -12,14 +12,14 @@ paste-ready transitions when the motion decision is yes.
 
 [SKILL.md](./SKILL.md) is the entry point. Topic files load on demand:
 
-- [start-here.md](./start-here.md) — direction, brand kit, ideas, structure, build order
-- [surfaces.md](./surfaces.md) — radius, depth, forms, nav, overlays, assets, sections
+- [start-here.md](./start-here.md): direction, brand kit, ideas, structure, build order
+- [surfaces.md](./surfaces.md): radius, depth, forms, nav, overlays, assets, sections
 - [typography.md](./typography.md)
 - [motion.md](./motion.md)
-- [color.md](./color.md) — contrast, tokens, dark mode
+- [color.md](./color.md): contrast, tokens, dark mode
 - [aesthetics.md](./aesthetics.md)
 - [copy.md](./copy.md)
-- [transitions/](./transitions/) — sixteen paste-ready CSS recipes
+- [transitions/](./transitions/): sixteen paste-ready CSS recipes
 
 ## Install
 

@@ -6,8 +6,8 @@ Work in order: **register → anchor → plan → critique → build → review.
 
 ## 0. Pick the register
 
-- **Brand** (marketing, landing, portfolio): design IS the product. Hero discipline, signature element, composition first.
-- **Product** (app UI, dashboard, tool): design SERVES the product. Density, clarity, crisp motion, quiet chrome. Status and actions beat marketing furniture.
+- **Brand** (marketing, landing, portfolio): design *is* the product. Hero discipline, signature element, composition first.
+- **Product** (app UI, dashboard, tool): design *serves* the product. Density, clarity, crisp motion, quiet chrome. Status and actions beat marketing furniture.
 
 Task cue wins. A marketing site *for* a SaaS product is brand; the app behind login is product. Design them separately. Product surfaces follow [surfaces.md](./surfaces.md#data-and-product-density); brand surfaces follow hero and copy rules harder.
 
@@ -26,10 +26,10 @@ Decide before placing a div:
 - **Palette.** One accent + neutral ramp, 4 to 6 values. Neutrals from a slight warm or cool hue. Never default indigo/violet + gray/slate unless the project already owns them. Contrast in [color.md](./color.md) is non-negotiable.
 - **Type.** Display + body for this brief, real scale, at most two weights on a view. Do not reuse the same pairing every time.
 - **Density.** Airy editorial, or compact dense.
-- **Radius scale.** Sharp (~4px) = precise; soft (16–24px) = friendly. Hold concentrically ([surfaces.md](./surfaces.md)).
+- **Radius scale.** Sharp (~4px) = precise; soft (16-24px) = friendly. Hold concentrically ([surfaces.md](./surfaces.md)).
 - **Motion character.** Crisp/minimal, or springy/alive ([motion.md](./motion.md)).
 - **One signature element.** Spend boldness there. Cut decoration that does not serve the brief.
-- **Depth strategy.** One technique per view: whitespace, dividers, soft shadow, or surface shift — not all at once.
+- **Depth strategy.** One technique per view: whitespace, dividers, soft shadow, or surface shift. Never all at once.
 
 ## Brand kit
 
@@ -48,10 +48,10 @@ If image generation is available, optionally render a board with two mockups. Te
 
 When asked for options / "show me 3" / compare layouts:
 
-1. Produce 2–3 **genuinely different** directions (composition, not just accent hue). Label them.
+1. Produce 2-3 **genuinely different** directions (composition, not just accent hue). Label them.
 2. Each option gets a one-line thesis + the plan axes that change.
 3. Prefer implementing light variants in the real project for browser comparison when possible; otherwise describe clearly enough to choose.
-4. Ask which to keep (or which combo). Build only the chosen direction through steps 3–5.
+4. Ask which to keep (or which combo). Build only the chosen direction through steps 3-5.
 
 Do not ship three near-identical indigo heroes.
 
@@ -82,13 +82,13 @@ None banned when earned. Banned when they appear because nobody chose.
 
 Implement in this order. Do not jump to decoration first.
 
-1. **Structure** — real content and information hierarchy in the project's stack (match existing components/tokens).
-2. **Layout** — spacing rhythm, section shells, responsive collapse ([surfaces.md](./surfaces.md)).
-3. **Type and color** — scale, weights, contrast ([typography.md](./typography.md), [color.md](./color.md)).
-4. **States** — hover/focus/pressed/disabled/loading/empty/error before polish motion.
-5. **Depth and chrome** — lightest separation, shadows/rings, nav, overlays.
-6. **Motion** — only after [motion.md](./motion.md) says yes; then catalog recipes if needed.
-7. **Pass** — [aesthetics.md](./aesthetics.md) + [copy.md](./copy.md) + checklist in [SKILL.md](./SKILL.md).
+1. **Structure**: real content and information hierarchy in the project's stack (match existing components/tokens).
+2. **Layout**: spacing rhythm, section shells, responsive collapse ([surfaces.md](./surfaces.md)).
+3. **Type and color**: scale, weights, contrast ([typography.md](./typography.md), [color.md](./color.md)).
+4. **States**: hover/focus/pressed/disabled/loading/empty/error before polish motion.
+5. **Depth and chrome**: lightest separation, shadows/rings, nav, overlays.
+6. **Motion**: only after [motion.md](./motion.md) says yes; then catalog recipes if needed.
+7. **Pass**: [aesthetics.md](./aesthetics.md) + [copy.md](./copy.md) + checklist in [SKILL.md](./SKILL.md).
 
 Low-fi before high-fi when stuck: a short ASCII wire of the primary surface (regions only, no styling) is enough to force hierarchy. Then code the real layout.
 

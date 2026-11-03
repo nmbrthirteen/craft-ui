@@ -14,8 +14,8 @@ Do not jump to cards. Pick the lightest treatment that still communicates groupi
 4. **Cards** only for independently interactive units or fundamentally different content
 
 Never nest cards. Prefer content on the canvas over white cards on gray by default.
-One depth technique per view: borders-only, tint, soft shadow, or layered shadow —
-mixing all of them makes hierarchy accidental.
+One depth technique per view: borders-only, tint, soft shadow, or layered shadow.
+Mixing all of them makes hierarchy accidental.
 
 In containers, outer padding is at least the gap between children. Related children
 sit closer to each other than to the container edge.
@@ -23,7 +23,7 @@ sit closer to each other than to the container edge.
 ## Spacing rhythm and section layout
 
 Use a three-step rhythm so grouping reads from the gaps: tightest within a group,
-more between groups, most between sections (e.g. 8 / 16 / 32–40). Keep the same jumps
+more between groups, most between sections (e.g. 8 / 16 / 32-40). Keep the same jumps
 across the page.
 
 Measure gaps between **visible contrast edges**, not invisible boxes. If a block has
@@ -129,7 +129,7 @@ ambient shadow underneath.
 Custom shadows: blur roughly twice the offset; lower opacity as elevation rises.
 Elevated surfaces stay at the lightest canvas, not a darker gray card on light UI.
 Prefer a tight directional cast from one light source over a fat all-around halo.
-Do not pair a solid gray border with a wide soft shadow on the same element — pick
+Do not pair a solid gray border with a wide soft shadow on the same element. Pick
 an edge treatment or a ≤8px-blur shadow, not both as decoration.
 
 In dark mode the layered depth disappears against the dark surface, so collapse it
@@ -245,10 +245,10 @@ is secondary, quiet, outline, or ghost. Destructive actions stay secondary until
 are the confirm action in a dedicated confirm step. Never make a secondary higher
 contrast than the primary.
 
-- Product/app UIs: compact control height (about 28–38px including rings); at most two
+- Product/app UIs: compact control height (about 28-38px including rings); at most two
   sizes, ≥6px apart. Marketing CTAs can be larger, but stay consistent page-wide.
 - Inline form actions (upload, resend, change photo) use the smaller size and a
-  secondary style — never the same weight as the primary submit.
+  secondary style, never the same weight as the primary submit.
 - Icon + label buttons: asymmetric padding; icon-side padding matches vertical padding
   (see Optical over geometric alignment).
 - Prefer color/fill changes on hover over lift/scale-up ("boop"). Press scale is for
@@ -276,7 +276,7 @@ contrast than the primary.
 ## Navigation and chrome
 
 - One clear current-page / current-section indicator. Soft/muted background or darker
-  text — not a loud primary fill. Do not change font-weight between nav states.
+  text, not a loud primary fill. Do not change font-weight between nav states.
 - Desktop header or sidebar is fine; below the desktop breakpoint ship a real mobile
   nav (menu button + panel/dialog). Hiding desktop links without a replacement is a bug.
 - Horizontal tab/pill rows that cannot fit scroll horizontally; they never wrap into
@@ -366,7 +366,7 @@ Glass, blur, and vibrancy are accents, not the default surface system.
   the effect.
 - Provide a reduced-transparency / solid fallback when `backdrop-filter` is heavy or
   unsupported.
-- Do not fake glass with a white wash and a glow — that reads as the neon-glow tell
+- Do not fake glass with a white wash and a glow. That reads as the neon-glow tell
   in [aesthetics.md](./aesthetics.md).
 
 ## Marketing sections
@@ -377,7 +377,7 @@ For brand-register pages, keep section craft consistent with the hero (one idea 
   icon-in-colored-tile reflex; align columns to the page grid.
 - **Pricing:** one emphasized plan max; equal button alignment across columns; stack
   cleanly on small screens; price uses `tabular-nums`.
-- **Proof:** logos, quotes, or metrics — real names and numbers. Hanging punctuation
+- **Proof:** logos, quotes, or metrics, with real names and numbers. Hanging punctuation
   on quotes when it helps; attribution secondary to the line.
 - **Final CTA:** restates the outcome; one primary action; no kitchen-sink furniture.
 - **Footer:** quiet, structured links on a real grid aligned to content margins; do

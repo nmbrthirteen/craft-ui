@@ -29,13 +29,13 @@ slides up and out while the new one slides up and in.
 
   @starting-style {
     opacity: 0;
-    translate: 0 0.6em;
+    translate: 0 calc(0.6em * var(--motion-travel));
   }
 }
 
-.cui-swap > .is-out {
+.cui-swap > [data-state="out"] {
   opacity: 0;
-  translate: 0 -0.6em;
+  translate: 0 calc(-0.6em * var(--motion-travel));
 }
 ```
 
@@ -44,7 +44,7 @@ slides up and out while the new one slides up and in.
 ```js
 function swapText(host, next) {
   for (const child of host.children) {
-    child.classList.add("is-out");
+    child.dataset.state = "out";
     child.addEventListener("transitionend", () => child.remove(), {
       once: true,
     });

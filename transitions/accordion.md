@@ -41,16 +41,26 @@ Built on `<details>`, so keyboard and semantics come free.
 .cui-acc[open] summary .chevron {
   rotate: 90deg;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .cui-acc summary .chevron {
+    transition: none;
+  }
+}
 ```
 
 ## Notes
 
+- Animating `block-size` is the size-to-content case of the
+  [reveal exception](../motion.md#the-reveal-exception) to the
+  transform-and-opacity rule.
 - `interpolate-size: allow-keywords` is what lets `block-size` tween to `auto`.
   Where unsupported the accordion still opens, it just snaps: the right
   fallback, since the tween is polish and the disclosure is function.
 - For a non-`<details>` container, put the same `block-size` transition on a
   wrapper and toggle a `data-open` attribute; the mechanics are identical.
 - Chevron rotates in the same duration as the body so the two read as one
-  action.
+  action. Under reduced motion it snaps to its end state, because the rotation
+  is also the open/closed indicator.
 - Collapse reuses the same timing by design; a snappier close is a
   `transition-duration: var(--motion-base)` override on the non-open state.

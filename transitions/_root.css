@@ -5,21 +5,25 @@
   --motion-slow: 320ms;        /* modals, drawers, accordions */
   --motion-deliberate: 480ms;  /* rare moments: success draw, first reveal */
   --motion-stagger: 30ms;      /* per-item offset in staggered entrances */
+  --motion-delay-hint: 400ms;  /* tooltip: wait before showing */
+  --motion-delay-settle: 80ms; /* success draw: let the prior change settle */
+  --motion-travel: 1;          /* movement multiplier: translate, scale, rotate */
 
   --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
   --ease-pop: linear(0, 0.68 34%, 1.06 68%, 0.99 86%, 1);
 }
 
-/* One switch disables the catalog: every recipe reads duration from these
-   tokens, so collapsing them collapses transitions and keyframes alike.
-   1ms rather than 0ms so JS waiting on transitionend still resolves. */
+/* One switch for the catalog. Reduced motion means gentler, not none: fades
+   keep running at --motion-fast, and --motion-travel zeroes every translate,
+   scale, and rotate that recipes derive from it. Durations stay nonzero so JS
+   waiting on transitionend still resolves. */
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --motion-fast: 1ms;
-    --motion-base: 1ms;
-    --motion-slow: 1ms;
-    --motion-deliberate: 1ms;
+    --motion-base: var(--motion-fast);
+    --motion-slow: var(--motion-fast);
+    --motion-deliberate: var(--motion-fast);
     --motion-stagger: 0ms;
+    --motion-travel: 0;
   }
 }

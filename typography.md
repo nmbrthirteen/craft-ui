@@ -10,7 +10,7 @@ Hierarchy and rendering details that make text read as deliberate instead of def
   one for emphasis, one for body.
 - Large display type: tighten tracking slightly before adding weight. Floor around
   `-0.04em`; tighter and letters touch. Do not use tight tracking on small labels.
-- Constrain measure: body roughly 45–75ch; put max-width on the text element itself
+- Constrain measure: body roughly 45-75ch; put max-width on the text element itself
   when a headline wraps badly.
 - Headings: `text-wrap: balance`. Body / short UI copy: `text-wrap: pretty`.
 - Avoid uppercase eyebrows unless the type is intentionally mono/wide-tracked.

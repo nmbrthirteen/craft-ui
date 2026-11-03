@@ -34,7 +34,7 @@ the visuals can't drift out of sync with what's announced.
   display: grid;
   place-items: center;
   opacity: 0;
-  translate: 0 4px;
+  translate: 0 calc(4px * var(--motion-travel));
   transition:
     opacity var(--motion-fast) var(--ease-out),
     translate var(--motion-fast) var(--ease-out);
@@ -56,7 +56,7 @@ the visuals can't drift out of sync with what's announced.
 
 .cui-btn[aria-busy="true"] .cui-btn-label {
   opacity: 0;
-  translate: 0 -4px;
+  translate: 0 calc(-4px * var(--motion-travel));
 }
 
 .cui-btn[aria-busy="true"] .cui-btn-spinner {
@@ -77,12 +77,31 @@ the visuals can't drift out of sync with what's announced.
 }
 ```
 
+## JS
+
+`pointer-events: none` blocks the mouse only. Enter and Space still fire
+`click` on a focused button, so the handler guards itself:
+
+```js
+async function save(button) {
+  if (button.getAttribute("aria-busy") === "true") return;
+  button.setAttribute("aria-busy", "true");
+  try {
+    await submit();
+  } finally {
+    button.removeAttribute("aria-busy");
+  }
+}
+```
+
 ## Notes
 
 - The spinner is absolutely positioned over the label, so the button keeps the
   label's width and nothing reflows.
 - `pointer-events: none` plus `aria-busy`, rather than `disabled`: `disabled`
-  throws keyboard focus somewhere else mid-action.
+  throws keyboard focus somewhere else mid-action. Because keyboard activation
+  still fires `click`, the early return on `aria-busy="true"` is required, not
+  optional.
 - The spinner is a progress indicator, so reduced motion slows it to a stepped
   tick instead of removing it; a frozen ring reads as hung.
 - On success, clear `aria-busy` and chain [success-draw](./success-draw.md)

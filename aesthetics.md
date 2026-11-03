@@ -21,7 +21,7 @@ These are the looks agents reach for when nobody decided. Default to the restrai
 | Fake app/code window | Decorative macOS chrome or code screenshot that shows nothing real | Real UI from the product, or cut it |
 | Hairline as depth | Light 1px border doing the job of elevation | Layered transparent `box-shadow` ([surfaces.md](./surfaces.md)) |
 | Border + fat soft shadow | `1px` border plus wide blurry drop shadow on the same card/button | Pick one: edge or ≤8px-blur directional shadow |
-| Over-rounded cards | 24–40px radius on cards/inputs as the default | ~12–16px cards; pills only for tags/buttons |
+| Over-rounded cards | 24-40px radius on cards/inputs as the default | ~12-16px cards; pills only for tags/buttons |
 | Side-stripe accent | Thick `border-left` color bar on cards/alerts | Full border, tint, leading icon/number, or nothing |
 | Identical feature card grid | Endless same-size icon + title + blurb cards | Vary composition; fewer cards; real artifacts |
 | Hero-metric template | Giant number + tiny label + gradient accent as the whole story | Specific claim in context; product UI shows real data |
@@ -67,7 +67,7 @@ A padlock next to "Groceries" or a random square next to "Coffee" is worse than 
 
 ## No gradient text
 
-Headlines and body are a solid color. Emphasize with a flat accent, weight, or size — not a gradient wash.
+Headlines and body are a solid color. Emphasize with a flat accent, weight, or size. Never a gradient wash.
 
 ## No gradient-filled logos or app icons by default
 
